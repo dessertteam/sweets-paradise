@@ -16,6 +16,9 @@
     <Filter Include="ソース ファイル\主人公%28蟻%29">
       <UniqueIdentifier>{2de77de8-4a7c-44fa-99cb-212cb727a047}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\敵（おばけ）">
+      <UniqueIdentifier>{7848930f-a1fe-4783-819d-e51274428a13}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -63,6 +66,9 @@
     <ClInclude Include="ObjHero.h">
       <Filter>ソース ファイル\主人公%28蟻%29</Filter>
     </ClInclude>
+    <ClInclude Include="ObjFEnemy.h">
+      <Filter>ソース ファイル\敵（おばけ）</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -106,6 +112,9 @@
     </ClCompile>
     <ClCompile Include="ObjHero.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjFEnemy.cpp">
+      <Filter>ソース ファイル\敵（おばけ）</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
