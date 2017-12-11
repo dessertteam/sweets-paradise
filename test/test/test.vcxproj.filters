@@ -31,6 +31,9 @@
     <Filter Include="ソース ファイル\ゆきだるま">
       <UniqueIdentifier>{aac5953a-7ea7-4679-b847-03fe20672d5f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\主人公%28蟻%29\穴">
+      <UniqueIdentifier>{286f8474-962a-44e1-8d90-264a960d1e4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -105,6 +108,9 @@
     <ClInclude Include="SceneTitle.h">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClInclude>
+    <ClInclude Include="Hole.h">
+      <Filter>ソース ファイル\主人公%28蟻%29\穴</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -175,6 +181,9 @@
     </ClCompile>
     <ClCompile Include="SceneTitle.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="Hole.cpp">
+      <Filter>ソース ファイル\主人公%28蟻%29\穴</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

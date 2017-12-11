@@ -15,6 +15,7 @@ public:
 	void Draw();	//ドロー
 
 					//ブロックとの当たり判定
+	
 	void BlockHit(
 		float* x, float* y,
 		bool* up, bool* down, bool* left, bool* right,

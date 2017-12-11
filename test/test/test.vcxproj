@@ -129,6 +129,7 @@
     <ClInclude Include="GameL\SetWindow.h" />
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
+    <ClInclude Include="Hole.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="ObjBlock.h" />
     <ClInclude Include="ObjFEnemy.h" />
@@ -155,6 +156,7 @@
     <ClCompile Include="GameL\SetWindow.cpp" />
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
+    <ClCompile Include="Hole.cpp" />
     <ClCompile Include="ObjBlock.cpp" />
     <ClCompile Include="ObjFEnemy.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />

@@ -76,6 +76,8 @@ void CObjHero::Action()
 	//‰ŠúˆÊ’u(—\’è)‚É–ß‚é
 	if (Input::GetVKey('Z') == true)
 	{
+		
+
 		m_x = 416.0f;
 		m_y = 544.0f;
 	}
