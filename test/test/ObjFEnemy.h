@@ -8,12 +8,26 @@ using namespace GameL;
 class CObjFEnemy : public CObj
 {
 public:
-	CObjFEnemy() {};
+	CObjFEnemy(float x, float y);
 	~CObjFEnemy() {};
 	void Init(); //イニシャライズ
 	void Action();//アクション
 	void Draw();  //ドロー
 
+	void SetX(float x) { m_px = x; }
+	void SetY(float y) { m_py = y; }
+	void SetVY(float vy) { m_vy = vy; }
+	void SetVX(float vx) { m_vx = vx; }
+
+	float GetX() { return m_px; }
+	float GetY() { return m_py; }
+	float GetVY() { return m_vy; }
+	float GetVX() { return m_vx; }
+
+	void SetUp(bool b) { m_hit_up = b; }
+	void SetDown(bool b) { m_hit_down = b; }
+	void SetLeft(bool b) { m_hit_left = b; }
+	void SetRight(bool b) { m_hit_right = b; }
 private:
 	float m_px;//位置
 	float m_py;
@@ -27,9 +41,10 @@ private:
 	float m_speed_power; //スピードパワー
 	float m_ani_max_time;//アニメーション
 
-	//blockとの衝突状態確認用
+						 //blockとの衝突状態確認用
 	bool m_hit_up;
 	bool m_hit_down;
 	bool m_hit_left;
 	bool m_hit_right;
+	int m_time;
 };

@@ -13,5 +13,4 @@ public:
 	void InitScene();	//ゲームメインの初期化メソッド
 	void Scene();		//ゲームメインの実行中メソッド
 private:
-
 };

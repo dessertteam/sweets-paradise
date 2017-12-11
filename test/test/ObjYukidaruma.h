@@ -4,16 +4,17 @@
 //使用するネームスペース
 using namespace GameL;
 
-//オブジェクト : 主人公(蟻)
-class CObjHero : public CObj
+//住人(雪だるま)
+class CObjYukidaruma :public CObj
 {
 public:
-	CObjHero() {}
-	~CObjHero() {}
+	CObjYukidaruma() {}
+	~CObjYukidaruma() {}
 
 	void Init();	//イニシャライズ
 	void Action();	//アクション
 	void Draw();	//ドロー
+
 
 	float GetX() { return m_x; }
 	float GetY() { return m_y; }
@@ -27,27 +28,24 @@ public:
 
 	void SetUp(bool b) { m_hit_up = b; }
 	void SetDown(bool b) { m_hit_down = b; }
-	void SetLeft(bool b) { m_hit_left = b; }
+	void SetLeft(bool b) { m_hit_left = b = b; }
 	void SetRight(bool b) { m_hit_right = b; }
 private:
-	float m_x;		//位置
-	float m_y;
-	float m_vx;		//移動ベクトル
-	float m_vy;
-	float m_posture;//姿勢
+	float m_x;//雪のX方向の位置
+	float m_y;//雪のY方向の位置
+	float m_vx;//雪の移動ベクトルX
+	float m_vy;//雪の移動ベクトルY
 
-	int m_ani_time;		//アニメーションフレーム動作間隔
-	int m_ani_frame;	//描画フレーム
-
-	float m_speed;	//主人公(蟻)の速さ
-	float m_ani_max_time;//アニメーションフレーム動作間隔最大値
-
-						 //blockとの衝突状態確認用
+			   //壁情報記憶用
+	bool w_m_up;
+	bool w_m_down;
+	bool w_m_left;
+	bool w_m_right;
+	//blockとの衝突状態確認用
 	bool m_hit_up;
 	bool m_hit_down;
 	bool m_hit_left;
 	bool m_hit_right;
 
-	//blockの種類を確認用
-	int m_block_type;
+	int w_ran;   //ランダム初期化用
 };

@@ -19,6 +19,18 @@
     <Filter Include="ソース ファイル\敵（おばけ）">
       <UniqueIdentifier>{7848930f-a1fe-4783-819d-e51274428a13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\タイトル">
+      <UniqueIdentifier>{248969eb-3857-4023-8feb-db34d3e23f3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ドーナツ">
+      <UniqueIdentifier>{43de60e7-fe8b-452d-b373-d71f1a4ac2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ブロック">
+      <UniqueIdentifier>{fca6f02a-bfcd-4615-9a98-1e68dc57f2d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ゆきだるま">
+      <UniqueIdentifier>{aac5953a-7ea7-4679-b847-03fe20672d5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -69,6 +81,30 @@
     <ClInclude Include="ObjFEnemy.h">
       <Filter>ソース ファイル\敵（おばけ）</Filter>
     </ClInclude>
+    <ClInclude Include="ObjYukidaruma.h">
+      <Filter>ソース ファイル\ゆきだるま</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBlock.h">
+      <Filter>ソース ファイル\ブロック</Filter>
+    </ClInclude>
+    <ClInclude Include="UtilityModule.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSymmetry.h">
+      <Filter>ソース ファイル\ドーナツ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTitle.h">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGameOver.h">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -110,11 +146,35 @@
     <ClCompile Include="SceneMain.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjHero.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="ObjFEnemy.cpp">
       <Filter>ソース ファイル\敵（おばけ）</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjHero.cpp">
+      <Filter>ソース ファイル\主人公%28蟻%29</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjYukidaruma.cpp">
+      <Filter>ソース ファイル\ゆきだるま</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBlock.cpp">
+      <Filter>ソース ファイル\ブロック</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilityModule.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjSymmetry.cpp">
+      <Filter>ソース ファイル\ドーナツ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGameOver.cpp">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTitle.cpp">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGameOver.cpp">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>ソース ファイル\タイトル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
