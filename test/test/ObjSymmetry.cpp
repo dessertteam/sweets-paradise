@@ -116,10 +116,10 @@ void CObjSymmetry::Draw()
 	RECT_F dst;
 
 	//Ø‚èæ‚èˆÊ’u‚Ìİ’è
-	src.m_top = 0.0f;
+	src.m_top = 64.0f;
 	src.m_left = 0.0f;
 	src.m_right = 64.0f;
-	src.m_bottom = 64.0f;
+	src.m_bottom = 128.0f;
 	//•\¦ˆÊ’u‚Ìİ’è
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;

@@ -112,11 +112,11 @@ void CObjFEnemy::Draw()
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
-			   //切り取り位置の設定
-	src.m_top = 0.0f;
+    //切り取り位置の設定
+	src.m_top = 128.0f;
 	src.m_left = 64.0f;
 	src.m_right = 0.0f;
-	src.m_bottom = 64.0f;
+	src.m_bottom = 192.0f;
 
 	//ブロック情報を持ってくる
 	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
