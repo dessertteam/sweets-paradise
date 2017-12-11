@@ -22,7 +22,7 @@ CSceneMain::CSceneMain()
 //デストラクタ
 CSceneMain::~CSceneMain()
 {
-
+	
 }
 
 //ゲームメインの初期化メソッド

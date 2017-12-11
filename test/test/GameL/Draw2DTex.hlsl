@@ -9,7 +9,7 @@ struct vertexOut
 	float4		 pos	: SV_POSITION;
 	float2		 uv		: TEXCOORD0;
 };
-
+//
 
 Texture2D		txDiffuse	: register( t0 );
 SamplerState	samLinear	: register( s0 );
