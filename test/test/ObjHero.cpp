@@ -80,8 +80,17 @@ void CObjHero::Action()
 		m_y = 544.0f;
 	}
 
+	//端から端の処理
+	if (m_x > 832.0f) {
+		m_x = -32.0f;
+	}
+	if (m_x < -32.0f)
+	{
+		m_x = 832.0f;
+	}
 
-	//主人公(蟻)が領域外に行かない処理
+
+	/*//主人公(蟻)が領域外に行かない処理
 	if (m_x + 32.0f > 800.0f)
 	{
 		m_x = 0.0f;
@@ -97,7 +106,7 @@ void CObjHero::Action()
 	if (m_x < 0.0f)
 	{
 		m_x = 800.0f - 32.0f;
-	}
+	}*/
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);    //作成したHitBox更新用の入り口を取り出す
