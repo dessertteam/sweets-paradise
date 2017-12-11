@@ -36,11 +36,11 @@ void CObjSymmetry::Action()
 	hit->SetPos(m_x, m_y);
 
 	//—ÌˆæŠO‚Éo‚È‚¢ˆ—
-	if (m_x + 64.0f > 800.0f)
+	if (m_x + 32.0f > 800.0f)
 	{
 		m_x = 800.0f - 32.0f;
 	}
-	if (m_y + 64.0f > 600.0f)
+	if (m_y + 32.0f > 600.0f)
 	{
 		m_y = 600.0f - 32.0f;
 	}

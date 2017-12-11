@@ -161,7 +161,7 @@ void CObjBlock::BlockHit(
 						r = 360.0f - abs(r);
 
 					//len‚ª‚ ‚éˆê’è‚Ì’·‚³‚æ‚è’Z‚¢ê‡”»’è‚É“ü‚é
-					if (len < 88.0f)
+					if (len < 43.0f)
 					{
 						//Šp“x‚Åã‰º¶‰E‚ð”»’è
 						if ((r < 45 && r >= 0) || r > 315)
