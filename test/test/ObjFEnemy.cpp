@@ -66,16 +66,8 @@ void CObjFEnemy::Action()
 	m_px += m_vx*2.0f;
 	m_py += m_vy*2.0f;
 
-	//端から端の処理
-	if (m_px > 832.0f) {
-		m_px = -32.0f;
-	}
-	if (m_px < -32.0f)
-	{
-		m_px = 832.0f;
-	}
 
-	/*if (m_px + 64.0f > 800.0f)
+    if (m_px + 64.0f > 800.0f)
 	{
 		m_px = 800.0f - 32.0f;
 	}
@@ -90,7 +82,7 @@ void CObjFEnemy::Action()
 	if (m_px < 0.0f)
 	{
 		m_px = 0.0f;
-	}*/
+	}
 
 	//敵のHitBox更新用ポインター取得
 	CHitBox* hit = Hits::GetHitBox(this);
