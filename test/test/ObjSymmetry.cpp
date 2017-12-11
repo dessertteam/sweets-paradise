@@ -1,4 +1,3 @@
-//使用ヘッダーファイル
 #include "GameL\DrawTexture.h"
 #include "GameL\WinInputs.h"
 #include "GameHead.h"
@@ -35,6 +34,16 @@ void CObjSymmetry::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_x, m_y);
 
+	//端から端の処理
+	if (m_x > 832.0f) {
+		m_x = -32.0f;
+	}
+	if (m_x < -32.0f)
+	{
+		m_x = 832.0f;
+	}
+
+	/*
 	//領域外に出ない処理
 	if (m_x + 64.0f > 800.0f)
 	{
@@ -51,7 +60,7 @@ void CObjSymmetry::Action()
 	if (m_x < 0.0f)
 	{
 		m_x = 0.0f;
-	}
+	}*/
 
 	//点対称(仮)------------------------------------------------------
 
