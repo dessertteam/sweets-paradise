@@ -38,11 +38,11 @@ void CObjSymmetry::Action()
 	//—ÌˆæŠO‚Éo‚È‚¢ˆ—
 	if (m_x + 64.0f > 800.0f)
 	{
-		m_x = 800.0f - 64.0f;
+		m_x = 800.0f - 32.0f;
 	}
 	if (m_y + 64.0f > 600.0f)
 	{
-		m_y = 600.0f - 64.0f;
+		m_y = 600.0f - 32.0f;
 	}
 	if (m_y < 0.0f)
 	{

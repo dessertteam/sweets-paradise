@@ -68,11 +68,11 @@ void CObjFEnemy::Action()
 
 	if (m_px + 64.0f > 800.0f)
 	{
-		m_px = 800.0f - 64.0f;
+		m_px = 800.0f - 32.0f;
 	}
 	if (m_py + 64.0f > 600.0f)
 	{
-		m_py = 600.0f - 64.0f;
+		m_py = 600.0f - 32.0f;
 	}
 	if (m_py < 0.0f)
 	{
