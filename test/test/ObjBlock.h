@@ -14,13 +14,13 @@ public:
 	void Action();	//アクション
 	void Draw();	//ドロー
 
-					//ブロックとの当たり判定
-	
+	//ブロックとの当たり判定
 	void BlockHit(
-		float* x, float* y,
-		bool* up, bool* down, bool* left, bool* right,
-		float* vx, float* vy, int* bt
-	);
-private:
+				  float* x, float* y,
+				  bool* up, bool* down, bool* left, bool* right,
+				  float* vx, float* vy, int* bt
+				  );
 	int m_map[19][25];	//マップ情報(仮)
+private:
+	
 };

@@ -86,7 +86,7 @@ float GetAtan2Angle(float w, float h)
 //マップの空白の部分をすべて数値化し、追跡キャラなどの優先度を決めるための関数
 //左右上下同じ処理をしている。
 
-void search(int** mapData, int PosX, int PosY,int n)
+void Searching(int mapData[19][25], int PosX, int PosY,int n)
 {
 	n += 1;
 
@@ -95,7 +95,7 @@ void search(int** mapData, int PosX, int PosY,int n)
 	{
 		mapData[PosY - 1][PosX] = n;
 		//さらに下の部分にも要素番号をつける
-		search(mapData, PosX, PosY-1, n);
+		Searching(mapData, PosX, PosY-1, n);
 	}
 
 	//主人公の上が0または要素番号より大きい値のときに、要素番号をつける
@@ -103,7 +103,7 @@ void search(int** mapData, int PosX, int PosY,int n)
 	{
 		mapData[PosY + 1][PosX] = n;
 		//さらに上の部分にも要素番号をつける
-		search(mapData, PosX, PosY + 1, n);
+		Searching(mapData, PosX, PosY + 1, n);
 	}
 
 	//主人公の左が0または要素番号より大きい値のときに、要素番号をつける
@@ -111,7 +111,7 @@ void search(int** mapData, int PosX, int PosY,int n)
 	{
 		mapData[PosY][PosX - 1] = n;
 		//さらに左の部分にも要素番号をつける
-		search(mapData, PosX - 1, PosY, n);
+		Searching(mapData, PosX - 1, PosY, n);
 	}
 
 	//主人公の右が0または要素番号より大きい値のときに、要素番号をつける
@@ -119,16 +119,17 @@ void search(int** mapData, int PosX, int PosY,int n)
 	{
 		mapData[PosY][PosX + 1] = n;
 		//さらに右の部分にも要素番号をつける
-		search(mapData, PosX + 1, PosY, n);
+		Searching(mapData, PosX + 1, PosY, n);
 	}
 	return ;
+
 }
 //マップデータを初期化し今いる位置に１０を登録する関数
 //引数1 int**  mapData  :調べたいマップデータを入れる
 //引数2 int PosX		:調べたいキャラクターのX位置を入れる
 //引数3 int PosY		:調べたいキャラクターのY位置を入れる
 //マップデータをすべて初期化し、今いる位置に10を登録して要素番号を付け始める
-void moveDataSet(int** mapData, int PosX, int PosY)
+void moveDataSet(int mapData[19][25], int PosX, int PosY)
 {
 	//マップデータの初期化
 	for (int i = 0; i < 19; i++)
@@ -145,7 +146,7 @@ void moveDataSet(int** mapData, int PosX, int PosY)
 	//今いる位置を10に設定
 	mapData[PosY][PosX] = 10;
 	//要素番号をつける
-	search(mapData, PosX, PosY, 10);
+	Searching(mapData, PosX, PosY, 10);
 
 }
 
@@ -156,7 +157,7 @@ void moveDataSet(int** mapData, int PosX, int PosY)
 //引数4 int v			:要素番号
 //引数5 int TargetX		:探索したいターゲットのX位置を入れる
 //引数6 int TargetY		:探索したいターゲットのY位置を入れる
-void fastMove(int** mapData,int* x, int* y, int* v, int TargetX, int TargetY)
+void fastMove(int mapData[19][25],int* x, int* y, int* v, int TargetX, int TargetY)
 {
 	//ターゲットの位置を探索する
 	moveDataSet(mapData, TargetX, TargetY);

@@ -6,6 +6,7 @@
 #include "GameHead.h"
 #include "ObjHero.h"
 #include "UtilityModule.h"
+#include"ObjBlock.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -101,6 +102,16 @@ void CObjHero::Action()
 		m_x = 800.0f - 32.0f;
 	}
 
+	
+
+	//ブロックとの当たり判定実行
+	CObjBlock* pb = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+	pb->BlockHit(
+		&m_x, &m_y,
+		&m_hit_up, &m_hit_down, &m_hit_left, &m_hit_right,
+		&m_vx, &m_vy, &m_block_type
+	);
+
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);    //作成したHitBox更新用の入り口を取り出す
 	hit->SetPos(m_x, m_y);
@@ -114,15 +125,7 @@ void CObjHero::Action()
 		//主人公機消滅でシーンをゲームオーバーに移行する
 		Scene::SetScene(new CSceneGameOver());
 	}
-
-	//ブロックとの当たり判定実行
-	CObjBlock* pb = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
-	pb->BlockHit(
-		&m_x, &m_y,
-		&m_hit_up, &m_hit_down, &m_hit_left, &m_hit_right,
-		&m_vx, &m_vy, &m_block_type
-	);
-
+	
 	//位置の更新
 	m_x += m_vx;
 	m_y += m_vy;

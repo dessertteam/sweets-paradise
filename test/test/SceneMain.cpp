@@ -12,6 +12,7 @@ using namespace GameL;
 //使用ヘッダー
 #include "SceneMain.h"
 #include "GameHead.h"
+#include "UtilityModule.h"
 
 //コンストラクタ
 CSceneMain::CSceneMain()
@@ -56,5 +57,14 @@ void CSceneMain::InitScene()
 //ゲームメインの実行中メソッド
 void CSceneMain::Scene()
 {
+	//マップを数値化する処理です。
+	//うまくいかなかったのでとりあえずコメント
+
+	//CObjBlock map2;
+	//CObjHero h1;
+	//int x, y;
+	//x = h1.GetX();
+	//y = h1.GetY();
+	//Searching(map2.m_map,x/32,y/32, 10);
 
 }
