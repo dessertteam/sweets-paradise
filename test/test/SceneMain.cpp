@@ -12,6 +12,7 @@ using namespace GameL;
 //使用ヘッダー
 #include "SceneMain.h"
 #include "GameHead.h"
+#include "GameL\Audio.h"
 #include "UtilityModule.h"
 
 //コンストラクタ
@@ -29,6 +30,16 @@ CSceneMain::~CSceneMain()
 //ゲームメインの初期化メソッド
 void CSceneMain::InitScene()
 {
+	//音楽読み込み
+	Audio::LoadAudio(0, L"ステージ(仮4).wav",BACK_MUSIC);
+
+	//ボリュームを1.0に戻す
+	float v = Audio::VolumeMaster(1.5);
+
+	//音楽スタート
+	Audio::Start(0);
+
+
 	//外部グラフィックファイルを読み込み0番に登録(512*512ピクセル)
 	Draw::LoadImage(L"character.png", 0, TEX_SIZE_512);
 
