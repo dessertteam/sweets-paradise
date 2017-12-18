@@ -6,17 +6,9 @@
 #include "ObjYukidaruma.h"
 #include "UtilityModule.h"
 
-#define FPS (60)
-
-/*//秒→フレーム
-#define SECOND_TO_FRAME(_sec)   ((_sec)*FPS)
-//フレーム→秒
-#define FRAME_TO_SECOND(_frame) ((_frame)/SECOND_TO_FRAME(1))
-
-//使用するネームスペース
-using namespace GameL;*/
-
-
+//ランダム用ヘッダー
+#include <stdlib.h>
+#include <time.h>
 
 //イニシャライズ
 void CObjYukidaruma::Init()
@@ -24,8 +16,15 @@ void CObjYukidaruma::Init()
 	m_x = 416.0f;
 	m_y = 32.0f;
 
-	w_ran = 0;
+	m_mx = -2;
+	m_my = 0;
+	m_direc = 0;
 
+
+	w_ranif = 0;
+
+	srand(unsigned(time(NULL)));//ランダム情報を初期化
+	w_ranif = rand() % 3 + 1;
 	m_vx = 0.0f;
 	m_vy = 0.0f;
 
@@ -51,45 +50,2127 @@ void CObjYukidaruma::Init()
 //アクション
 void CObjYukidaruma::Action()
 {
-	//壁情報を記録
-	//上
-	if (m_hit_up = true) {
-		w_m_up = true;
+	//初期位置からの移動
+	//左から判断していく
+	//[2][2]
+	//パターン1
+	//下に
+	if (m_direc == 0 && m_x == 32 && m_y == 32) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
 	}
-	else if (m_hit_up = false) {
-		w_m_up = false;
-	}
-
-	//下
-	if (m_hit_down = true) {
-		w_m_down = true;
-	}
-	else if (m_hit_down = false) {
-		w_m_down = false;
-	}
-
-	//左
-	if (m_hit_left = true) {
-		w_m_left = true;
-	}
-	else if (m_hit_left = false) {
-		w_m_left = false;
+	//パターン2
+	//右に
+	else if (m_direc == 2 && m_x == 32 && m_y == 32) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
 	}
 
-	//右
-	if (m_hit_right = true) {
-		w_m_right = true;
+	//[2][6]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 32) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
 	}
-	else if (m_hit_right = false) {
-		w_m_right = false;
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 32) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 32) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 32) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 160 && m_y == 32) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 160 && m_y == 32) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[2][10]
+	//パターン1
+	//下に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 288 && m_y == 32) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//左に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 288 && m_y == 32) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//下に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 288 && m_y == 32) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 288 && m_y == 32) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 288 && m_y == 32) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 288 && m_y == 32) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[2][14]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 416 && m_y == 32) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 416 && m_y == 32) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 3 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 416 && m_y == 32) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 416 && m_y == 32) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 3 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 416 && m_y == 32) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 416 && m_y == 32) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
 	}
 
 
-	//壁との衝突でランダムに方向転換する
-	if (w_m_up == true && w_m_down == true && w_m_right == true && w_m_left == true) {
-		m_y;
-		m_x++;
+	//[2][20]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 32) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
 	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 32) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 32) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 32) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 608 && m_y == 32) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 608 && m_y == 32) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[2][24]
+	//下に
+	if (m_direc == 1 && m_x == 736 && m_y == 32) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//左に
+	else if (m_direc == 2 && m_x == 736 && m_y == 32) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[4][4]
+	//パターン1
+	//右に
+	if (m_direc == 2 && m_x == 96 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//下に
+	else if (m_direc == 0 && m_x == 96 && m_y == 96) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[4][6]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 96) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 96) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 160 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 160 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[4][7]
+	//パターン1
+	//左に
+	if (m_direc == 2 && m_x == 192 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//下に
+	else if (m_direc == 1 && m_x == 192 && m_y == 96) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[4][9]
+	//パターン1
+	//下に
+	if (m_direc == 0 && m_x == 256 && m_y == 96) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && m_x == 256 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[4][10]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 288 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 288 && m_y == 96) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 288 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 288 && m_y == 96) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 288 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 288 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[4][12]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 352 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 352 && m_y == 96) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 352 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 3 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 352 && m_y == 96) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 352 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 352 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 3 + 1;
+	}
+
+	//▼[4][14]
+	//パターン1
+	//下に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 416 && m_y == 96) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//左に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 416 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 3 && m_x == 416 && m_y == 96) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 416 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 416 && m_y == 96) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 3 && m_x == 416 && m_y == 96) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//上に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 416 && m_y == 96) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//左に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 416 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 3 && m_x == 416 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン4
+	//下に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 416 && m_y == 96) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//左に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 416 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 3 && m_x == 416 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[4][17]
+	//パターン1
+	//左に
+	if (m_direc == 2 && m_x == 512 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 3 + 1;
+	}
+	//パターン2
+	//下に
+	else if (m_direc == 1 && m_x == 512 && m_y == 96) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+	}
+
+	//[4][19]
+	//パターン1
+	//右に
+	if (m_direc == 2 && m_x == 576 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//下に
+	else if (m_direc == 0 && m_x == 576 && m_y == 96) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[4][20]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 96) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 96) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 608 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 608 && m_y == 96) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[4][22]
+	//パターン1
+	//左に
+	if (m_direc == 2 && m_x == 672 && m_y == 96) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//下に
+	else if (m_direc == 1 && m_x == 672 && m_y == 96) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[6][2]
+	//パターン1
+	//上に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 32 && m_y == 160) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 32 && m_y == 160) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//上に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 32 && m_y == 160) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 32 && m_y == 160) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//下に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 32 && m_y == 160) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 32 && m_y == 160) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//▼[6][4]
+	//パターン1
+	//上に
+	if (m_direc == 1 && w_ranif == 1 && m_x == 96 && m_y == 160) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 96 && m_y == 160) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//上に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 96 && m_y == 160) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//左に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 96 && m_y == 160) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 96 && m_y == 160) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 96 && m_y == 160) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[6][22]
+	//パターン1
+	//上に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 672 && m_y == 160) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 672 && m_y == 160) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 672 && m_y == 160) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 672 && m_y == 160) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//右に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 672 && m_y == 160) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 672 && m_y == 160) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[6][24]
+	//パターン1
+	//上に
+	if (m_direc == 1 && w_ranif == 1 && m_x == 736 && m_y == 160) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 736 && m_y == 160) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 736 && m_y == 160) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 736 && m_y == 160) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 736 && m_y == 160) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 736 && m_y == 160) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[7][4]
+	//パターン1
+	//上に
+	if (m_direc == 0 && m_x == 96 && m_y == 192) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 3 && m_x == 96 && m_y == 192) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[7][6]
+	//パターン1
+	//左に
+	else if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 192) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 192) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 192) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 192) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 160 && m_y == 192) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 160 && m_y == 192) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[7][7]
+	//パターン1
+	//上に
+	if (m_direc == 1 && m_x == 192 && m_y == 192) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 3 && m_x == 192 && m_y == 192) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[7][9]
+	//パターン1
+	//上に
+	if (m_direc == 0 && m_x == 256 && m_y == 192) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 3 && m_x == 256 && m_y == 192) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[7][12]
+	//パターン1
+	//上に
+	if (m_direc == 1 && m_x == 352 && m_y == 192) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 3 && m_x == 352 && m_y == 192) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[7][14]
+	//パターン1
+	//上に
+	if (m_direc == 0 && m_x == 416 && m_y == 192) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 3 && m_x == 416 && m_y == 192) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[7][17]
+	//パターン1
+	//上に
+	if (m_direc == 1 && w_ranif == 1 && m_x == 512 && m_y == 192) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 512 && m_y == 192) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 512 && m_y == 192) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 512 && m_y == 192) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 512 && m_y == 192) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	if (m_direc == 3 && w_ranif == 2 && m_x == 512 && m_y == 192) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[7][19]
+	//パターン1
+	//上に
+	if (m_direc == 0 && m_x == 576 && m_y == 192) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 3 && m_x == 576 && m_y == 192) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[7][20]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 192) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 192) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 192) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 192) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 608 && m_y == 192) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 608 && m_y == 192) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[7][22]
+	//パターン1
+	//上に
+	if (m_direc == 1 && m_x == 672 && m_y == 192) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 3 && m_x == 672 && m_y == 192) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[9][2]
+	//パターン1
+	//上に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 32 && m_y == 256) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 32 && m_y == 256) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 32 && m_y == 256) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 32 && m_y == 256) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//右に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 32 && m_y == 256) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 32 && m_y == 256) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[9][4]
+	//パターン1
+	//下に
+	if (m_direc == 1 && m_x == 96 && m_y == 256) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && m_x == 96 && m_y == 256) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[9][6]
+	//パターン1
+	//上に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 256) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 256) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 160 && m_y == 256) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 160 && m_y == 256) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//右に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 160 && m_y == 256) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 160 && m_y == 256) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[9][8]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 224 && m_y == 256) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 224 && m_y == 256) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 224 && m_y == 256) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 224 && m_y == 256) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 224 && m_y == 256) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 224 && m_y == 256) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[9][17]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 512 && m_y == 256) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 512 && m_y == 256) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 512 && m_y == 256) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 512 && m_y == 256) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 512 && m_y == 256) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 512 && m_y == 256) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[9][18]
+	//パターン1
+	//下に
+	if (m_direc == 1 && m_x == 544 && m_y == 256) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && m_x == 544 && m_y == 256) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[9][22]
+	//パターン1
+	//下に
+	if (m_direc == 0 && m_x == 672 && m_y == 256) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && m_x == 672 && m_y == 256) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[9][24]
+	//パターン1
+	//上に
+	if (m_direc == 1 && w_ranif == 1 && m_x == 736 && m_y == 256) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 736 && m_y == 256) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 736 && m_y == 256) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 736 && m_y == 256) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 736 && m_y == 256) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 736 && m_y == 256) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[10][18]
+	//パターン1
+	//上に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 544 && m_y == 288) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 544 && m_y == 288) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 544 && m_y == 288) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 544 && m_y == 288) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//右に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 544 && m_y == 288) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 544 && m_y == 288) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[10][20]
+	//パターン1
+	//上に
+	if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 288) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 288) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 608 && m_y == 288) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 608 && m_y == 288) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 608 && m_y == 288) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 608 && m_y == 288) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[11][4]
+	//パターン1
+	//上に
+	if (m_direc == 0 && m_x == 96 && m_y == 320) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 3 && m_x == 96 && m_y == 320) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[11][6]
+	//パターン1
+	//上に
+	if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 320) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 320) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 160 && m_y == 320) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 160 && m_y == 320) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 160 && m_y == 320) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 160 && m_y == 320) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[11][8]
+	//パターン1
+	//上に
+	if (m_direc == 0 && m_x == 224 && m_y == 320) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 3 && m_x == 224 && m_y == 320) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[11][10]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 288 && m_y == 320) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 288 && m_y == 320) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 288 && m_y == 320) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 288 && m_y == 320) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 288 && m_y == 320) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 288 && m_y == 320) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[11][16]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 480 && m_y == 320) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 480 && m_y == 320) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 480 && m_y == 320) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 480 && m_y == 320) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 480 && m_y == 320) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 480 && m_y == 320) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[11][18]
+	//パターン1
+	//上に
+	if (m_direc == 1 && m_x == 544 && m_y == 320) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 3 && m_x == 544 && m_y == 320) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[11][20]
+	//パターン1
+	//上に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 320) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 320) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 608 && m_y == 320) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 608 && m_y == 320) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//右に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 608 && m_y == 320) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 608 && m_y == 320) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[11][22]
+	//パターン1
+	//上に
+	if (m_direc == 1 && m_x == 672 && m_y == 320) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 3 && m_x == 672 && m_y == 320) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][4]
+	//パターン1
+	//下に
+	if (m_direc == 0 && m_x == 96 && m_y == 384) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && m_x == 96 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][6]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 384) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 384) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 160 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 160 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][7]
+	//パターン1
+	//下に
+	if (m_direc == 1 && m_x == 192 && m_y == 384) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && m_x == 192 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][9]
+	//パターン1
+	//下に
+	if (m_direc == 0 && m_x == 256 && m_y == 384) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && m_x == 256 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][10]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 288 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 288 && m_y == 384) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 288 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 288 && m_y == 384) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 288 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 288 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][12]
+	//パターン1
+	//下に
+	if (m_direc == 1 && m_x == 352 && m_y == 384) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && m_x == 352 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][14]
+	//パターン1
+	//下に
+	if (m_direc == 0 && m_x == 416 && m_y == 384) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && m_x == 416 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][16]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 480 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 480 && m_y == 384) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 480 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 480 && m_y == 384) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 480 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 480 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][17]
+	//パターン1
+	//下に
+	if (m_direc == 1 && m_x == 512 && m_y == 384) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && m_x == 512 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][19]
+	//パターン1
+	//下に
+	if (m_direc == 0 && m_x == 576 && m_y == 384) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && m_x == 576 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][20]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 384) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 384) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 608 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 608 && m_y == 384) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[13][22]
+	//パターン1
+	//下に
+	if (m_direc == 1 && m_x == 672 && m_y == 384) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && m_x == 672 && m_y == 384) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[14][2]
+	//パターン1
+	//上に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 32 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 32 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 32 && m_y == 416) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 32 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//右に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 32 && m_y == 416) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 32 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[14][4]
+	//上に
+	if (m_direc == 1 && w_ranif == 1 && m_x == 96 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 96 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 96 && m_y == 416) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 96 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 96 && m_y == 416) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 96 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[14][7]
+	//パターン1
+	//上に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 192 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 192 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 192 && m_y == 416) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 192 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//右に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 192 && m_y == 416) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 192 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[14][9]
+	//上に
+	if (m_direc == 1 && w_ranif == 1 && m_x == 256 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 256 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 256 && m_y == 416) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 256 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 256 && m_y == 416) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 256 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[14][22]
+	//パターン1
+	//上に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 672 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 672 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 672 && m_y == 416) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 672 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//右に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 672 && m_y == 416) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 672 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[14][24]
+	//上に
+	if (m_direc == 1 && w_ranif == 1 && m_x == 736 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 736 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 736 && m_y == 416) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 736 && m_y == 416) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 736 && m_y == 416) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 736 && m_y == 416) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[16][4]
+	//パターン1
+	//上に
+	if (m_direc == 0 && m_x == 96 && m_y == 480) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 3 && m_x == 96 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[16][6]
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 480) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 480) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 480) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 160 && m_y == 480) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 160 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[16][7]
+	//パターン1
+	//上に
+	if (m_direc == 1 && m_x == 192 && m_y == 480) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 3 && m_x == 192 && m_y == 480) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[16][9]
+	//パターン1
+	//上に
+	if (m_direc == 0 && m_x == 256 && m_y == 480) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 3 && m_x == 256 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[16][12]
+	//パターン1
+	//上に
+	if (m_direc == 1 && m_x == 352 && m_y == 480) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 3 && m_x == 352 && m_y == 480) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[16][14]
+	//上に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 416 && m_y == 480) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 416 && m_y == 480) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 416 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 416 && m_y == 480) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//右に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 416 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 416 && m_y == 480) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[16][17]
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 512 && m_y == 480) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 512 && m_y == 480) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 512 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 512 && m_y == 480) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 512 && m_y == 480) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 512 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[16][19]
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 576 && m_y == 480) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 576 && m_y == 480) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 576 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 576 && m_y == 480) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 576 && m_y == 480) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 576 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[16][20]
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 480) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 480) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//下に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 480) {
+		m_mx = 0; m_my = 2; m_direc = 3;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 2 && w_ranif == 1 && m_x == 608 && m_y == 480) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 2 && w_ranif == 2 && m_x == 608 && m_y == 480) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[16][22]
+	//パターン1
+	//上に
+	if (m_direc == 1 && m_x == 672 && m_y == 480) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 3 && m_x == 672 && m_y == 480) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[18][2]
+	//パターン1
+	//上に
+	if (m_direc == 0 && m_x == 32 && m_y == 544) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 3 && m_x == 32 && m_y == 544) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[18][6]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 544) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 544) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 544) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 544) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 160 && m_y == 544) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 160 && m_y == 544) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[18][14]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 416 && m_y == 544) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 416 && m_y == 544) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 416 && m_y == 544) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 416 && m_y == 544) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 416 && m_y == 544) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 416 && m_y == 544) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[18][20]
+	//パターン1
+	//左に
+	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 544) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 544) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//右に
+	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 544) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+	//上に
+	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 544) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン3
+	//左に
+	else if (m_direc == 3 && w_ranif == 1 && m_x == 608 && m_y == 544) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+	//右に
+	else if (m_direc == 3 && w_ranif == 2 && m_x == 608 && m_y == 544) {
+		m_mx = 2; m_my = 0; m_direc = 1;
+		w_ranif = rand() % 2 + 1;
+	}
+
+	//[18][24]
+	//パターン1
+	//上に
+	if (m_direc == 1 && m_x == 736 && m_y == 544) {
+		m_mx = 0; m_my = -2; m_direc = 2;
+		w_ranif = rand() % 2 + 1;
+	}
+	//パターン2
+	//左に
+	else if (m_direc == 3 && m_x == 736 && m_y == 544) {
+		m_mx = -2; m_my = 0; m_direc = 0;
+		w_ranif = rand() % 2 + 1;
+	}
+
+
+	m_x += m_mx;
+	m_y += m_my;
+
+
 
 	////HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);

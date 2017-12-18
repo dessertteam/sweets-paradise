@@ -35,8 +35,11 @@ private:
 	float m_y;//雪のY方向の位置
 	float m_vx;//雪の移動ベクトルX
 	float m_vy;//雪の移動ベクトルY
+	float m_mx;//雪のX移動保存用
+	float m_my;//雪のY移動保存用
+	int m_direc;//雪の向き用 0:左,1:右,2上:,3下:
 
-			   //壁情報記憶用
+	//壁情報記憶用
 	bool w_m_up;
 	bool w_m_down;
 	bool w_m_left;
@@ -47,5 +50,5 @@ private:
 	bool m_hit_left;
 	bool m_hit_right;
 
-	int w_ran;   //ランダム初期化用
+	int w_ranif; //ランダムイフ用
 };
