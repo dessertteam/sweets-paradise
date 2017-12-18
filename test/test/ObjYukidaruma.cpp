@@ -535,7 +535,7 @@ void CObjYukidaruma::Action()
 	//パターン3
 	//下に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 32 && m_y == 160) {
-		m_mx = 0; m_my = 3; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
@@ -1547,7 +1547,7 @@ void CObjYukidaruma::Action()
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 384) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
