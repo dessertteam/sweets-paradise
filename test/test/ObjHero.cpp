@@ -64,13 +64,11 @@ void CObjHero::Action()
 	if (Input::GetVKey(VK_UP) == true)
 	{
 		m_y -= m_speed;
-		m_posture = 0.0f;
 		m_ani_time += 1;
 	}
 	if (Input::GetVKey(VK_DOWN) == true)
 	{
 		m_y += m_speed;
-		m_posture = 1.0f;
 		m_ani_time += 1;
 	}
 
