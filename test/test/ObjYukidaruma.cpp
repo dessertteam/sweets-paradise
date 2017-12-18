@@ -20,6 +20,7 @@ void CObjYukidaruma::Init()
 	m_my = 0;
 	m_direc = 0;
 
+	memo = 3;
 
 	w_ranif = 0;
 
@@ -56,13 +57,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 0 && m_x == 32 && m_y == 32) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && m_x == 32 && m_y == 32) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -70,34 +71,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 32) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 32) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 32) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 32) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 160 && m_y == 32) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 160 && m_y == 32) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -105,34 +106,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 288 && m_y == 32) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//左に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 288 && m_y == 32) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//下に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 288 && m_y == 32) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 288 && m_y == 32) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 288 && m_y == 32) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 288 && m_y == 32) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -140,34 +141,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 416 && m_y == 32) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 416 && m_y == 32) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 3 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 416 && m_y == 32) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 416 && m_y == 32) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 3 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 416 && m_y == 32) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 416 && m_y == 32) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -176,46 +177,46 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 32) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 32) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 32) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 32) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 608 && m_y == 32) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 608 && m_y == 32) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
 	//[2][24]
 	//下に
 	if (m_direc == 1 && m_x == 736 && m_y == 32) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//左に
 	else if (m_direc == 2 && m_x == 736 && m_y == 32) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -223,13 +224,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//右に
 	if (m_direc == 2 && m_x == 96 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//下に
 	else if (m_direc == 0 && m_x == 96 && m_y == 96) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -237,34 +238,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 96) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 96) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 160 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 160 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -272,13 +273,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 2 && m_x == 192 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//下に
 	else if (m_direc == 1 && m_x == 192 && m_y == 96) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -286,13 +287,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 0 && m_x == 256 && m_y == 96) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && m_x == 256 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -300,34 +301,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 288 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 288 && m_y == 96) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 288 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 288 && m_y == 96) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 288 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 288 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -335,34 +336,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 352 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 352 && m_y == 96) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 352 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 3 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 352 && m_y == 96) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 352 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 352 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 3 + 1;
 	}
 
@@ -370,65 +371,65 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 416 && m_y == 96) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//左に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 416 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 3 && m_x == 416 && m_y == 96) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 416 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 416 && m_y == 96) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 3 && m_x == 416 && m_y == 96) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//上に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 416 && m_y == 96) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//左に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 416 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 3 && m_x == 416 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン4
 	//下に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 416 && m_y == 96) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//左に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 416 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 3 && m_x == 416 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -436,26 +437,26 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 2 && m_x == 512 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 3 + 1;
 	}
 	//パターン2
 	//下に
 	else if (m_direc == 1 && m_x == 512 && m_y == 96) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 	}
 
 	//[4][19]
 	//パターン1
 	//右に
 	if (m_direc == 2 && m_x == 576 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//下に
 	else if (m_direc == 0 && m_x == 576 && m_y == 96) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -463,34 +464,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 96) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 96) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 608 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 608 && m_y == 96) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -498,13 +499,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 2 && m_x == 672 && m_y == 96) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//下に
 	else if (m_direc == 1 && m_x == 672 && m_y == 96) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -512,34 +513,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 32 && m_y == 160) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 32 && m_y == 160) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//上に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 32 && m_y == 160) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 32 && m_y == 160) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//下に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 32 && m_y == 160) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = 3; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 32 && m_y == 160) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -547,34 +548,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && w_ranif == 1 && m_x == 96 && m_y == 160) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 96 && m_y == 160) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//上に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 96 && m_y == 160) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//左に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 96 && m_y == 160) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 96 && m_y == 160) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 96 && m_y == 160) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -582,34 +583,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 672 && m_y == 160) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 672 && m_y == 160) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 672 && m_y == 160) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 672 && m_y == 160) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//右に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 672 && m_y == 160) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 672 && m_y == 160) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -617,34 +618,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && w_ranif == 1 && m_x == 736 && m_y == 160) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 736 && m_y == 160) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 736 && m_y == 160) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 736 && m_y == 160) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 736 && m_y == 160) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 736 && m_y == 160) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -652,13 +653,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && m_x == 96 && m_y == 192) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 3 && m_x == 96 && m_y == 192) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -666,34 +667,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	else if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 192) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 192) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 192) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 192) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 160 && m_y == 192) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 160 && m_y == 192) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -701,13 +702,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && m_x == 192 && m_y == 192) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 3 && m_x == 192 && m_y == 192) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -715,13 +716,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && m_x == 256 && m_y == 192) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 3 && m_x == 256 && m_y == 192) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -729,13 +730,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && m_x == 352 && m_y == 192) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 3 && m_x == 352 && m_y == 192) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -743,13 +744,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && m_x == 416 && m_y == 192) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 3 && m_x == 416 && m_y == 192) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -757,34 +758,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && w_ranif == 1 && m_x == 512 && m_y == 192) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 512 && m_y == 192) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 512 && m_y == 192) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 512 && m_y == 192) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 512 && m_y == 192) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	if (m_direc == 3 && w_ranif == 2 && m_x == 512 && m_y == 192) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -792,13 +793,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && m_x == 576 && m_y == 192) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 3 && m_x == 576 && m_y == 192) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -806,34 +807,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 192) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 192) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 192) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 192) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 608 && m_y == 192) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 608 && m_y == 192) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -841,13 +842,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && m_x == 672 && m_y == 192) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 3 && m_x == 672 && m_y == 192) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -855,34 +856,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 32 && m_y == 256) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 32 && m_y == 256) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 32 && m_y == 256) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 32 && m_y == 256) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//右に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 32 && m_y == 256) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 32 && m_y == 256) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -890,13 +891,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 1 && m_x == 96 && m_y == 256) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && m_x == 96 && m_y == 256) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -904,34 +905,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 256) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 256) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 160 && m_y == 256) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 160 && m_y == 256) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//右に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 160 && m_y == 256) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 160 && m_y == 256) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -939,34 +940,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 224 && m_y == 256) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 224 && m_y == 256) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 224 && m_y == 256) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 224 && m_y == 256) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 224 && m_y == 256) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 224 && m_y == 256) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -974,34 +975,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 512 && m_y == 256) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 512 && m_y == 256) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 512 && m_y == 256) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 512 && m_y == 256) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 512 && m_y == 256) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 512 && m_y == 256) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1009,13 +1010,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 1 && m_x == 544 && m_y == 256) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && m_x == 544 && m_y == 256) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1023,13 +1024,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 0 && m_x == 672 && m_y == 256) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && m_x == 672 && m_y == 256) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1037,34 +1038,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && w_ranif == 1 && m_x == 736 && m_y == 256) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 736 && m_y == 256) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 736 && m_y == 256) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 736 && m_y == 256) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 736 && m_y == 256) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 736 && m_y == 256) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1072,34 +1073,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 544 && m_y == 288) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 544 && m_y == 288) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 544 && m_y == 288) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 544 && m_y == 288) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//右に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 544 && m_y == 288) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 544 && m_y == 288) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1107,34 +1108,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 288) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 288) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 608 && m_y == 288) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 608 && m_y == 288) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 608 && m_y == 288) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 608 && m_y == 288) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1142,13 +1143,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && m_x == 96 && m_y == 320) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 3 && m_x == 96 && m_y == 320) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1156,34 +1157,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 320) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 320) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 160 && m_y == 320) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 160 && m_y == 320) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 160 && m_y == 320) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 160 && m_y == 320) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1191,13 +1192,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && m_x == 224 && m_y == 320) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 3 && m_x == 224 && m_y == 320) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1205,34 +1206,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 288 && m_y == 320) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 288 && m_y == 320) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 288 && m_y == 320) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 288 && m_y == 320) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 288 && m_y == 320) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 288 && m_y == 320) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1240,34 +1241,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 480 && m_y == 320) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 480 && m_y == 320) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 480 && m_y == 320) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 480 && m_y == 320) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 480 && m_y == 320) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 480 && m_y == 320) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1275,13 +1276,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && m_x == 544 && m_y == 320) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 3 && m_x == 544 && m_y == 320) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1289,34 +1290,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 320) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 320) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 608 && m_y == 320) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 608 && m_y == 320) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//右に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 608 && m_y == 320) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 608 && m_y == 320) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1324,13 +1325,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && m_x == 672 && m_y == 320) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 3 && m_x == 672 && m_y == 320) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1338,13 +1339,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 0 && m_x == 96 && m_y == 384) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && m_x == 96 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1352,34 +1353,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 384) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 384) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 160 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 160 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1387,13 +1388,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 1 && m_x == 192 && m_y == 384) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && m_x == 192 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1401,13 +1402,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 0 && m_x == 256 && m_y == 384) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && m_x == 256 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1415,34 +1416,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 288 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 288 && m_y == 384) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 288 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 288 && m_y == 384) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 288 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 288 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1450,13 +1451,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 1 && m_x == 352 && m_y == 384) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && m_x == 352 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1464,13 +1465,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 0 && m_x == 416 && m_y == 384) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && m_x == 416 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1478,34 +1479,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 480 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 480 && m_y == 384) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 480 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 480 && m_y == 384) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 480 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 480 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1513,13 +1514,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 1 && m_x == 512 && m_y == 384) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && m_x == 512 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1527,13 +1528,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 0 && m_x == 576 && m_y == 384) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && m_x == 576 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1541,7 +1542,7 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
@@ -1552,23 +1553,23 @@ void CObjYukidaruma::Action()
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 384) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 608 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 608 && m_y == 384) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1576,13 +1577,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//下に
 	if (m_direc == 1 && m_x == 672 && m_y == 384) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && m_x == 672 && m_y == 384) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1590,68 +1591,68 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 32 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 32 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 32 && m_y == 416) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 32 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//右に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 32 && m_y == 416) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 32 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
 	//[14][4]
 	//上に
 	if (m_direc == 1 && w_ranif == 1 && m_x == 96 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 96 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 96 && m_y == 416) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 96 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 96 && m_y == 416) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 96 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1659,68 +1660,68 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 192 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 192 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 192 && m_y == 416) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 192 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//右に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 192 && m_y == 416) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 192 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
 	//[14][9]
 	//上に
 	if (m_direc == 1 && w_ranif == 1 && m_x == 256 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 256 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 256 && m_y == 416) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 256 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 256 && m_y == 416) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 256 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1728,68 +1729,68 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 672 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 672 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 672 && m_y == 416) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 672 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//右に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 672 && m_y == 416) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 672 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
 	//[14][24]
 	//上に
 	if (m_direc == 1 && w_ranif == 1 && m_x == 736 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 736 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 736 && m_y == 416) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 736 && m_y == 416) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 736 && m_y == 416) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 736 && m_y == 416) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1797,47 +1798,47 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && m_x == 96 && m_y == 480) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 3 && m_x == 96 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
 	//[16][6]
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 480) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 480) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 480) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 160 && m_y == 480) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 160 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1845,13 +1846,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && m_x == 192 && m_y == 480) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 3 && m_x == 192 && m_y == 480) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1859,13 +1860,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && m_x == 256 && m_y == 480) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 3 && m_x == 256 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -1873,149 +1874,149 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && m_x == 352 && m_y == 480) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 3 && m_x == 352 && m_y == 480) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
 	//[16][14]
 	//上に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 416 && m_y == 480) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 416 && m_y == 480) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 416 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 416 && m_y == 480) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//右に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 416 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 416 && m_y == 480) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 
 	//[16][17]
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 512 && m_y == 480) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 512 && m_y == 480) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 512 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 512 && m_y == 480) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 512 && m_y == 480) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 512 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
 	//[16][19]
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 576 && m_y == 480) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 576 && m_y == 480) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 576 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 576 && m_y == 480) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 576 && m_y == 480) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 576 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
 	//[16][20]
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 480) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 480) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//下に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 480) {
-		m_mx = 0; m_my = 2; m_direc = 3;
+		m_mx = 0; m_my = memo; m_direc = 3;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 2 && w_ranif == 1 && m_x == 608 && m_y == 480) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 2 && w_ranif == 2 && m_x == 608 && m_y == 480) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -2023,13 +2024,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && m_x == 672 && m_y == 480) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 3 && m_x == 672 && m_y == 480) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -2037,13 +2038,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 0 && m_x == 32 && m_y == 544) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 3 && m_x == 32 && m_y == 544) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -2051,34 +2052,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 160 && m_y == 544) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 160 && m_y == 544) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 160 && m_y == 544) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 160 && m_y == 544) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 160 && m_y == 544) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 160 && m_y == 544) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -2086,34 +2087,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 416 && m_y == 544) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 416 && m_y == 544) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 416 && m_y == 544) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 416 && m_y == 544) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 416 && m_y == 544) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 416 && m_y == 544) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -2121,34 +2122,34 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//左に
 	if (m_direc == 0 && w_ranif == 1 && m_x == 608 && m_y == 544) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 0 && w_ranif == 2 && m_x == 608 && m_y == 544) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//右に
 	else if (m_direc == 1 && w_ranif == 1 && m_x == 608 && m_y == 544) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 	//上に
 	else if (m_direc == 1 && w_ranif == 2 && m_x == 608 && m_y == 544) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン3
 	//左に
 	else if (m_direc == 3 && w_ranif == 1 && m_x == 608 && m_y == 544) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 	//右に
 	else if (m_direc == 3 && w_ranif == 2 && m_x == 608 && m_y == 544) {
-		m_mx = 2; m_my = 0; m_direc = 1;
+		m_mx = memo; m_my = 0; m_direc = 1;
 		w_ranif = rand() % 2 + 1;
 	}
 
@@ -2156,13 +2157,13 @@ void CObjYukidaruma::Action()
 	//パターン1
 	//上に
 	if (m_direc == 1 && m_x == 736 && m_y == 544) {
-		m_mx = 0; m_my = -2; m_direc = 2;
+		m_mx = 0; m_my = -memo; m_direc = 2;
 		w_ranif = rand() % 2 + 1;
 	}
 	//パターン2
 	//左に
 	else if (m_direc == 3 && m_x == 736 && m_y == 544) {
-		m_mx = -2; m_my = 0; m_direc = 0;
+		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
 

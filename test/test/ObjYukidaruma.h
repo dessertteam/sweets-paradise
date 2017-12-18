@@ -37,6 +37,7 @@ private:
 	float m_vy;//雪の移動ベクトルY
 	float m_mx;//雪のX移動保存用
 	float m_my;//雪のY移動保存用
+	float memo;//移動用変数
 	int m_direc;//雪の向き用 0:左,1:右,2上:,3下:
 
 	//壁情報記憶用
