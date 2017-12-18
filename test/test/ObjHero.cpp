@@ -24,7 +24,7 @@ void CObjHero::Init()
 	m_ani_frame = 1;	//静止フレームを初期にする
 
 	m_speed = 3.0f;	//主人公の速さ
-	m_ani_max_time = 10;//アニメーション間隔幅
+	m_ani_max_time = 4;//アニメーション間隔幅
 
 	//blockとの衝突状態確認用
 	bool m_hit_up = false;
@@ -77,8 +77,6 @@ void CObjHero::Action()
 	//初期位置(予定)に戻る
 	if (Input::GetVKey('Z') == true)
 	{
-		
-
 		m_x = 416.0f;
 		m_y = 544.0f;
 	}
@@ -111,7 +109,16 @@ void CObjHero::Action()
 		m_x = 800.0f - 32.0f;
 	}*/
 
-	
+	if (m_ani_time > m_ani_max_time)
+	{
+		m_ani_frame += 1;
+		m_ani_time = 0;
+	}
+
+	if (m_ani_frame == 4)
+	{
+		m_ani_frame = 0;
+	}
 
 	//ブロックとの当たり判定実行
 	CObjBlock* pb = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
@@ -144,9 +151,9 @@ void CObjHero::Action()
 //ドロー
 void CObjHero::Draw()
 {
-	int AniData[2] =
+	int AniData[4] =
 	{
-		0,1,
+		0,1,0,1,
 	};
 
 	//描画カラー情報　R=RED G=Green B=Blue A=Alpha(透過情報)
@@ -163,8 +170,8 @@ void CObjHero::Draw()
 
 	//表示位置の設定
 	dst.m_top = 0.0f + m_y;
-	dst.m_left = 0.0f + m_x;
-	dst.m_right = 32.0f + m_x;
+	dst.m_left = (32.0f - 32.0f * m_posture) + m_x;
+	dst.m_right = 32.0f*m_posture + m_x;
 	dst.m_bottom = 32.0f + m_y;
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
