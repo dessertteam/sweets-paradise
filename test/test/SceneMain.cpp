@@ -30,16 +30,6 @@ CSceneMain::~CSceneMain()
 //ゲームメインの初期化メソッド
 void CSceneMain::InitScene()
 {
-	//音楽読み込み
-	Audio::LoadAudio(0, L"ステージ(仮4).wav",BACK_MUSIC);
-
-	//ボリュームを1.0に戻す
-	float v = Audio::VolumeMaster(1.5);
-
-	//音楽スタート
-	Audio::Start(0);
-
-
 	//外部グラフィックファイルを読み込み0番に登録(512*512ピクセル)
 	Draw::LoadImage(L"character.png", 0, TEX_SIZE_512);
 
@@ -48,7 +38,7 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj, OBJ_HERO, 10);	//作った主人公オブジェクトをオブジェクトマネージャーに登録
 
 	//blockオブジェクト作成
-	CObjBlock* objb = new CObjBlock();
+	CObjBlock* objb = new CObjBlock(map);
 	Objs::InsertObj(objb, OBJ_BLOCK, 9);
 
 	//雪だるまオブジェクト作成

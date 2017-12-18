@@ -8,7 +8,7 @@ using namespace GameL;
 class CObjBlock : public CObj
 {
 public:
-	CObjBlock() {};
+	CObjBlock(int map[19][25]);
 	~CObjBlock() {};
 	void Init();	//イニシャライズ
 	void Action();	//アクション
@@ -16,11 +16,11 @@ public:
 
 	//ブロックとの当たり判定
 	void BlockHit(
-				  float* x, float* y,
-				  bool* up, bool* down, bool* left, bool* right,
-				  float* vx, float* vy, int* bt
-				  );
-	int m_map[19][25];	//マップ情報(仮)
+		float* x, float* y,
+		bool* up, bool* down, bool* left, bool* right,
+		float* vx, float* vy, int* bt
+	);
 private:
-	
+	int m_map[19][25];	//マップ情報
+	int m_block[19][25]; //データ情報
 };
