@@ -6,6 +6,7 @@
 
 #include "GameHead.h"
 #include "ObjBlock.h"
+#include "UtilityModule.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -54,11 +55,16 @@ void CObjBlock::Action()
 
 	//敵（先回り）と角度を取る
 	CObjFEnemy*obj_fenemy = (CObjFEnemy*)Objs::GetObj(OBJ_FENEMY);
+
+	CObjHero hero;
+
+	
 }
 
 //ドロー
 void CObjBlock::Draw()
 {
+	
 	//描画カラー情報　R=RED G=Green B=Blue A=Alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -86,7 +92,7 @@ void CObjBlock::Draw()
 	{
 		for (int j = 0; j < 25; j++)
 		{
-			if (m_map[i][j] > 0)
+			if (m_map[i][j] ==1)
 			{
 				//表示位置の設定
 				dst.m_top = i*32.0f;
@@ -96,6 +102,19 @@ void CObjBlock::Draw()
 
 				//描画
 				Draw::Draw(0, &src, &dst, c, 0.0f);
+			}
+			else if (m_map[i][j] >= 10)
+			{
+				
+
+				//表示位置の設定
+				dst.m_top = i*32.0f;
+				dst.m_left = j*32.0f;
+				dst.m_right = dst.m_left + 32.0f;
+				dst.m_bottom = dst.m_top + 32.0f;
+
+				//描画
+				printf("%d", m_map[i][j]);
 			}
 		}
 	}
@@ -161,7 +180,7 @@ void CObjBlock::BlockHit(
 						r = 360.0f - abs(r);
 
 					//lenがある一定の長さより短い場合判定に入る
-					if (len < 88.0f)
+					if (len < 43.0f)
 					{
 						//角度で上下左右を判定
 						if ((r < 45 && r >= 0) || r > 315)

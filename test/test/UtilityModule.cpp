@@ -77,3 +77,115 @@ float GetAtan2Angle(float w, float h)
 
 	return r;
 }
+
+//主人公の位置を数値化する関数
+//引数1 int**  mapData  :調べたいマップデータを入れる
+//引数2 int PosX		:調べたいキャラクターのX位置を入れる
+//引数3 int PosY		:調べたいキャラクターのY位置を入れる
+//引数4 int n			:要素番号
+//マップの空白の部分をすべて数値化し、追跡キャラなどの優先度を決めるための関数
+//左右上下同じ処理をしている。
+
+void Searching(int mapData[19][25], int PosX, int PosY,int n)
+{
+	n += 1;
+
+	//主人公の下が0または要素番号より大きい値のときに、要素番号をつける
+	if (mapData[PosY - 1][PosX] == 0 || mapData[PosY - 1][PosX] >= n)
+	{
+		mapData[PosY - 1][PosX] = n;
+		//さらに下の部分にも要素番号をつける
+		Searching(mapData, PosX, PosY-1, n);
+	}
+
+	//主人公の上が0または要素番号より大きい値のときに、要素番号をつける
+	if (mapData[PosY + 1][PosX] == 0 || mapData[PosY + 1][PosX] >= n)
+	{
+		mapData[PosY + 1][PosX] = n;
+		//さらに上の部分にも要素番号をつける
+		Searching(mapData, PosX, PosY + 1, n);
+	}
+
+	//主人公の左が0または要素番号より大きい値のときに、要素番号をつける
+	if (mapData[PosY][PosX - 1] == 0 || mapData[PosY][PosX - 1] >= n)
+	{
+		mapData[PosY][PosX - 1] = n;
+		//さらに左の部分にも要素番号をつける
+		Searching(mapData, PosX - 1, PosY, n);
+	}
+
+	//主人公の右が0または要素番号より大きい値のときに、要素番号をつける
+	if (mapData[PosY][PosX + 1] == 0 || mapData[PosY][PosX + 1] >= n)
+	{
+		mapData[PosY][PosX + 1] = n;
+		//さらに右の部分にも要素番号をつける
+		Searching(mapData, PosX + 1, PosY, n);
+	}
+	return ;
+
+}
+//マップデータを初期化し今いる位置に１０を登録する関数
+//引数1 int**  mapData  :調べたいマップデータを入れる
+//引数2 int PosX		:調べたいキャラクターのX位置を入れる
+//引数3 int PosY		:調べたいキャラクターのY位置を入れる
+//マップデータをすべて初期化し、今いる位置に10を登録して要素番号を付け始める
+void moveDataSet(int mapData[19][25], int PosX, int PosY)
+{
+	//マップデータの初期化
+	for (int i = 0; i < 19; i++)
+	{
+		for (int j = 0; j < 25; j++)
+		{
+			//1（壁）じゃないときに０（空白）にする
+			if (mapData[i][j] != 1)
+			{
+				mapData[i][j] = 0;
+			}
+		}
+	}
+	//今いる位置を10に設定
+	mapData[PosY][PosX] = 10;
+	//要素番号をつける
+	Searching(mapData, PosX, PosY, 10);
+
+}
+
+//プレイヤーの位置に最短距離で移動する関数
+//引数1 int**  mapData  :調べたいマップデータを入れる
+//引数2 int x			:自分のX位置を入れる
+//引数3 int y			:自分のY位置を入れる
+//引数4 int v			:要素番号
+//引数5 int TargetX		:探索したいターゲットのX位置を入れる
+//引数6 int TargetY		:探索したいターゲットのY位置を入れる
+void fastMove(int mapData[19][25],int* x, int* y, int* v, int TargetX, int TargetY)
+{
+	//ターゲットの位置を探索する
+	moveDataSet(mapData, TargetX, TargetY);
+
+  //自分から見てターゲットにより近い方向を探す処理
+	//下
+	if (mapData[*y - 1][*x] != 1 && mapData[*y - 1][*x] < mapData[*y][*x])
+	{
+		*y -= 1;
+		*v = 3;
+	}
+	//上
+	if (mapData[*y + 1][*x] != 1 && mapData[*y + 1][*x] < mapData[*y][*x])
+	{
+		*y +=1;
+		*v =1;
+	}
+	//左
+	if (mapData[*y][*x - 1] != 1 && mapData[*y][*x - 1] < mapData[*y][*x])
+	{
+		*x -= 1;
+		*v = 0;
+	}
+	//右
+	if (mapData[*y][*x + 1] != 1 && mapData[*y][*x + 1] < mapData[*y][*x])
+	{
+		*x += 1;
+		*v = 0;
+	}
+}
+
