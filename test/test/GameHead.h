@@ -14,6 +14,8 @@ enum OBJ_NAME
 					OBJ_YUKIDARUMA,
 					OBJ_SYMMETRY,
 					OBJ_HOLE,
+					OBJ_TIME,
+					OBJ_CLEAR,
 };
 //------------------------------------------------
 
@@ -64,13 +66,15 @@ struct UserData
 #include "ObjGameOver.h"
 #include "ObjYukidaruma.h"
 #include "ObjSymmetry.h"
-#include"ObjHero.h"
+#include "ObjTime.h"
+#include "ObjClear.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
 #include "SceneMain.h"
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
+#include "SceneClear.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
