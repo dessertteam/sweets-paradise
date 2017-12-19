@@ -30,14 +30,10 @@ void CObjSymmetry::Init()
 //アクション
 void CObjSymmetry::Action()
 {
-	//HitBoxの内容を更新
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_x, m_y);
-	
 	//領域外に出ない処理
-	if (m_x + 32.0f > 800.0f)
+	if (m_x + 32.0f > 768.0f)
 	{
-		m_x = 800.0f - 32.0f;
+		m_x = 768.0f - 32.0f;
 	}
 	if (m_y + 32.0f > 600.0f)
 	{
@@ -47,9 +43,9 @@ void CObjSymmetry::Action()
 	{
 		m_y = 0.0f;
 	}
-	if (m_x < 0.0f)
+	if (m_x < 32.0f)
 	{
-		m_x = 0.0f;
+		m_x = 32.0f;
 	}
 
 	//点対称(仮)------------------------------------------------------
@@ -100,6 +96,10 @@ void CObjSymmetry::Action()
 		&m_vx, &m_vy, &d
 	);
 
+	//HitBoxの内容を更新
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_x, m_y);
+
 	//位置の更新
 	m_x += m_vx;
 	m_y += m_vy;
@@ -109,7 +109,7 @@ void CObjSymmetry::Action()
 void CObjSymmetry::Draw()
 {
 	//描画カラー情報
-	float c[4] = { 1.0f, 1.0f, 0.0f, 1.0f };
+	float c[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
 
 	RECT_F src;
 	RECT_F dst;

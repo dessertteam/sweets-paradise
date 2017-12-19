@@ -20,7 +20,7 @@ void CObjYukidaruma::Init()
 	m_my = 0;
 	m_direc = 0;
 
-	memo = 3;
+	memo = 2;
 
 	w_ranif = 0;
 
