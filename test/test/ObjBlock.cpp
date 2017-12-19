@@ -1,5 +1,6 @@
 //使用するヘッダー
 #include "GameL\DrawTexture.h"
+#include "GameL\DrawFont.h"
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "GameL\SceneObjManager.h"
@@ -7,6 +8,12 @@
 #include "GameHead.h"
 #include "ObjBlock.h"
 #include "UtilityModule.h"
+
+#define FPS 60
+//秒→フレーム
+#define SECOND_TO_FRAME(_sec)   ((_sec)*FPS)
+//フレーム→秒
+#define FRAME_TO_SECOND(_frame) ((_frame)/SECOND_TO_FRAME(1))
 
 //使用するネームスペース
 using namespace GameL;
@@ -48,6 +55,13 @@ void CObjBlock::Draw()
 	
 	//描画カラー情報　R=RED G=Green B=Blue A=Alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+
+	int w_ca = SECOND_TO_FRAME(FPS);
+	int w_cb = SECOND_TO_FRAME(1);
+	int w_cc = w_ca - w_cb;
+
+	Font::StrDraw(L"TIME:", 400, 400, 32, c);
+
 
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置

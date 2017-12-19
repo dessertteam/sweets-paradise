@@ -55,6 +55,7 @@ void CSceneMain::InitScene()
 
 	};
 
+	/*
 	//音楽読み込み
 	Audio::LoadAudio(0, L"ステージ(仮4).wav", BACK_MUSIC);
 
@@ -62,7 +63,7 @@ void CSceneMain::InitScene()
 	float v = Audio::VolumeMaster(1.5);
 
 	//音楽スタート
-	Audio::Start(0);
+	Audio::Start(0);*/
 
 
 	//外部グラフィックファイルを読み込み0番に登録(512*512ピクセル)
