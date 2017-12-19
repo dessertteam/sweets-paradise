@@ -34,6 +34,15 @@
     <Filter Include="ソース ファイル\主人公%28蟻%29\穴">
       <UniqueIdentifier>{286f8474-962a-44e1-8d90-264a960d1e4e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\時間">
+      <UniqueIdentifier>{7f29666d-afff-4134-8a11-4fa94fd0283c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ゲームオーバー">
+      <UniqueIdentifier>{fcb4de9b-5f49-4a9c-b524-76a088e9cbfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ゲームクリア">
+      <UniqueIdentifier>{6ded3dae-3b6d-4cb6-985b-142291090012}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -96,13 +105,7 @@
     <ClInclude Include="ObjSymmetry.h">
       <Filter>ソース ファイル\ドーナツ</Filter>
     </ClInclude>
-    <ClInclude Include="ObjGameOver.h">
-      <Filter>ソース ファイル\タイトル</Filter>
-    </ClInclude>
     <ClInclude Include="ObjTitle.h">
-      <Filter>ソース ファイル\タイトル</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneGameOver.h">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClInclude>
     <ClInclude Include="SceneTitle.h">
@@ -110,6 +113,21 @@
     </ClInclude>
     <ClInclude Include="Hole.h">
       <Filter>ソース ファイル\主人公%28蟻%29\穴</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>ソース ファイル\ゲームオーバー</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGameOver.h">
+      <Filter>ソース ファイル\ゲームオーバー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTime.h">
+      <Filter>ソース ファイル\時間</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneClear.h">
+      <Filter>ソース ファイル\ゲームクリア</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjClear.h">
+      <Filter>ソース ファイル\ゲームクリア</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -170,13 +188,7 @@
     <ClCompile Include="ObjSymmetry.cpp">
       <Filter>ソース ファイル\ドーナツ</Filter>
     </ClCompile>
-    <ClCompile Include="ObjGameOver.cpp">
-      <Filter>ソース ファイル\タイトル</Filter>
-    </ClCompile>
     <ClCompile Include="ObjTitle.cpp">
-      <Filter>ソース ファイル\タイトル</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneGameOver.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClCompile>
     <ClCompile Include="SceneTitle.cpp">
@@ -184,6 +196,21 @@
     </ClCompile>
     <ClCompile Include="Hole.cpp">
       <Filter>ソース ファイル\主人公%28蟻%29\穴</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGameOver.cpp">
+      <Filter>ソース ファイル\ゲームオーバー</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGameOver.cpp">
+      <Filter>ソース ファイル\ゲームオーバー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTime.cpp">
+      <Filter>ソース ファイル\時間</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneClear.cpp">
+      <Filter>ソース ファイル\ゲームクリア</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjClear.cpp">
+      <Filter>ソース ファイル\ゲームクリア</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

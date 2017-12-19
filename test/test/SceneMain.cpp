@@ -5,6 +5,7 @@
 //使用するヘッダー
 #include "GameL\DrawTexture.h"
 #include "GameL\SceneObjManager.h"
+#include "GameL\DrawFont.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -65,6 +66,8 @@ void CSceneMain::InitScene()
 	//音楽スタート
 	Audio::Start(0);*/
 
+	//Font作成
+	Font::SetStrTex(L"0123456789秒");
 
 	//外部グラフィックファイルを読み込み0番に登録(512*512ピクセル)
 	Draw::LoadImage(L"character.png", 0, TEX_SIZE_512);
@@ -88,6 +91,10 @@ void CSceneMain::InitScene()
 	//敵(ドーナツ)オブジェクト作成
 	CObjSymmetry* objd = new CObjSymmetry(); //敵(ドーナツ)オブジェクト作成
 	Objs::InsertObj(objd, OBJ_SYMMETRY, 10); //作った敵(ドーナツ)オブジェクトをオブジェクトマネージャーに登録
+
+	//タイムオブジェクト作成
+	CObjTime* objt = new CObjTime();
+	Objs::InsertObj(objt, OBJ_TIME, 11);
 
 }
 

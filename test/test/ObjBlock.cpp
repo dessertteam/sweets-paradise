@@ -60,7 +60,7 @@ void CObjBlock::Draw()
 	int w_cb = SECOND_TO_FRAME(1);
 	int w_cc = w_ca - w_cb;
 
-	Font::StrDraw(L"TIME:", 400, 400, 32, c);
+	//Font::StrDraw(L"TIME:", 400, 400, 32, c);
 
 
 	RECT_F src;//ï`âÊå≥êÿÇËéÊÇËà íu
