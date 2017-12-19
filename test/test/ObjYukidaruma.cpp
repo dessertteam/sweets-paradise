@@ -51,6 +51,7 @@ void CObjYukidaruma::Init()
 //アクション
 void CObjYukidaruma::Action()
 {
+	srand(unsigned(time(NULL)));//ランダム情報を初期化
 	//初期位置からの移動
 	//左から判断していく
 	//[2][2]
