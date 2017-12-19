@@ -20,7 +20,7 @@ void CObjYukidaruma::Init()
 	m_my = 0;
 	m_direc = 0;
 
-	memo = 3;
+	memo = 2;
 
 	w_ranif = 0;
 
@@ -51,7 +51,6 @@ void CObjYukidaruma::Init()
 //アクション
 void CObjYukidaruma::Action()
 {
-	srand(unsigned(time(NULL)));//ランダム情報を初期化
 	//初期位置からの移動
 	//左から判断していく
 	//[2][2]

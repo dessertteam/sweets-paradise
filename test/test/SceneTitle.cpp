@@ -38,7 +38,7 @@ void CSceneTitle::InitScene()
 	Audio::LoadAudio(0, L"タイトル(仮3).wav", SOUND_TYPE::BACK_MUSIC);
 
 	//ミュージックスタート
-	float Volume = Audio::VolumeMaster(-0.8f);//マスターボリュームを0.8下げる
+	float Volume = Audio::VolumeMaster(1.5f);//マスターボリュームを1.0にする
 	Audio::Start(0);//音楽スタート*/
 
 	//タイトルオブジェクト作成
