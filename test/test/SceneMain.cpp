@@ -110,5 +110,4 @@ void CSceneMain::Scene()
 	//x = h1.GetX();
 	//y = h1.GetY();
 	//Searching(map2.m_map,x/32,y/32, 10);
-
 }
