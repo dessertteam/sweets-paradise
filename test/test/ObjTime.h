@@ -15,5 +15,6 @@ public:
 	void Draw();	//ドロー
 private:
 	int m_time;		 //時間
+	int m_time2;     //ちょいと実験
 	bool m_flag_time;//時間計測スタートフラグ
 };
