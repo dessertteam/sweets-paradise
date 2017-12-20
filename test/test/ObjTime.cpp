@@ -24,14 +24,13 @@ void CObjTime::Action()
 	m_time--;
 	m_time2++;
 
-	if (m_time2>600)
+	if (m_time2>1800)
 	{
 		m_time2 = 0;
 		//雪だるまオブジェクト作成
 		CObjYukidaruma* obj_yukidaruma = new CObjYukidaruma();  //雪だるまオブジェクト作成
 		Objs::InsertObj(obj_yukidaruma, OBJ_YUKIDARUMA, 10);     //作った雪だるまオブジェクトをオブジェクトマネージャーに登録
 	}
-
 	if (m_time < 0)
 	{
 		Scene::SetScene(new CSceneClear());
