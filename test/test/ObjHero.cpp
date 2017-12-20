@@ -80,12 +80,12 @@ void CObjHero::Action()
 	}
 
 	//’[‚©‚ç’[‚Ìˆ—
-	if (m_x > 832.0f) {
+	if (m_x > 800.0f) {
 		m_x = -32.0f;
 	}
-	if (m_x < -32.0f)
+	else if (m_x < -32.0f)
 	{
-		m_x = 832.0f;
+		m_x = 800.0f;
 	}
 
 
