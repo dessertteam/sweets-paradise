@@ -38,9 +38,6 @@ void CObjBlock::Action()
 
 	//敵（先回り）と角度を取る
 	CObjFEnemy*obj_fenemy = (CObjFEnemy*)Objs::GetObj(OBJ_FENEMY);
-
-	CObjHero hero;
-
 	
 }
 
@@ -64,12 +61,6 @@ void CObjBlock::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(1, &src, &dst, c, 0.0f);
-
-	/*//切り取り位置の設定
-	src.m_top = 256.0f;
-	src.m_left = 512.0f;
-	src.m_right = 0.0f;
-	src.m_bottom = 512.0f;*/
 
 	for (int i = 0; i < 19; i++)
 	{

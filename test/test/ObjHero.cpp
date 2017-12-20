@@ -88,25 +88,6 @@ void CObjHero::Action()
 		m_x = 795.0f;
 	}
 
-
-	/*//ŽålŒö(‹a)‚ª—ÌˆæŠO‚És‚©‚È‚¢ˆ—
-	if (m_x + 32.0f > 800.0f)
-	{
-		m_x = 0.0f;
-	}
-	if (m_y + 32.0f > 600.0f)
-	{
-		m_y = 600.0f - 32.0f;
-	}
-	if (m_y < 0.0f)
-	{
-		m_y = 0.0f;
-	}
-	if (m_x < 0.0f)
-	{
-		m_x = 800.0f - 32.0f;
-	}*/
-
 	if (m_ani_time > m_ani_max_time)
 	{
 		m_ani_frame += 1;
