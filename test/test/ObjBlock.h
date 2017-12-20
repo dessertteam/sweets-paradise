@@ -1,6 +1,7 @@
 #pragma once
 //使用するヘッダー
 #include "GameL\SceneObjManager.h"
+#include "GameL\DrawTexture.h"
 //使用するネームスペース
 using namespace GameL;
 
@@ -21,6 +22,9 @@ public:
 		float* vx, float* vy, int* bt
 	);
 private:
+	void BlockDraw(float x, float y, RECT_F* dst, float c[]);
+	void BlockDrawHouse(float x, float y, RECT_F* dst, float c[]);
+
 	int m_map[19][25];	//マップ情報
 	int m_block[19][25]; //データ情報
 };
