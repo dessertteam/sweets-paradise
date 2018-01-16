@@ -80,12 +80,14 @@ void CObjHero::Action()
 	}
 
 	//’[‚©‚ç’[‚Ìˆ—
-	if (m_x > 795.0f) {
-		m_x = -32.0f;
+	if (m_x >= 795.0f) {
+		m_y = 288.0f;
+		m_x = -31.0f;
 	}
-	else if (m_x < -32.0f)
+	else if (m_x <= -32.0f)
 	{
-		m_x = 795.0f;
+		m_y = 288.0f;
+		m_x = 794.0f;
 	}
 
 	if (m_ani_time > m_ani_max_time)
