@@ -37,6 +37,6 @@ void CObjTitle::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	Font::StrDraw(L"SweetParadise", 150, 100, 70, c);
-	Font::StrDraw(L"GameStart:Push EnterKey", 200, 400, 30, c);
+	Font::StrDraw(L"GameStart:Push EnterKey", 210, 400, 30, c);
 	Font::StrDraw(L"操作方法　十字キー：移動　Zキー：スタート位置に戻る", 25, 500, 30, c);
 }
