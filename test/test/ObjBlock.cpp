@@ -1,14 +1,11 @@
 //使用するヘッダー
 #include "GameL\DrawTexture.h"
-#include "GameL\DrawFont.h"
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "GameL\SceneObjManager.h"
 
 #include "GameHead.h"
 #include "ObjBlock.h"
-#include "UtilityModule.h"
-
 
 //使用するネームスペース
 using namespace GameL;
@@ -22,7 +19,6 @@ CObjBlock::CObjBlock(int map[19][25])
 //イニシャライズ
 void CObjBlock::Init()
 {
-
 }
 
 //アクション
@@ -38,20 +34,19 @@ void CObjBlock::Action()
 
 	//敵（先回り）と角度を取る
 	CObjFEnemy*obj_fenemy = (CObjFEnemy*)Objs::GetObj(OBJ_FENEMY);
-	
+
 }
 
 //ドロー
 void CObjBlock::Draw()
 {
-	
 	//描画カラー情報　R=RED G=Green B=Blue A=Alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
-	//背景表示
+			   //背景表示
 	src.m_top = 256.0f;
 	src.m_left = 0.0f;
 	src.m_right = 512.0f;
@@ -61,6 +56,12 @@ void CObjBlock::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(1, &src, &dst, c, 0.0f);
+
+	/*//切り取り位置の設定
+	src.m_top = 256.0f;
+	src.m_left = 512.0f;
+	src.m_right = 0.0f;
+	src.m_bottom = 512.0f;*/
 
 	for (int i = 0; i < 19; i++)
 	{
@@ -74,24 +75,24 @@ void CObjBlock::Draw()
 				dst.m_right = dst.m_left + 32.0f;
 				dst.m_bottom = dst.m_top + 32.0f;
 
-				if (m_map[i][j] == 2)
+				if (m_map[i][j] == 2 || m_map[i][j] == 16 || m_map[i][j] == 17 || m_map[i][j] == 18 || m_map[i][j] == 19 || m_map[i][j] == 20 || m_map[i][j] == 21 || m_map[i][j] == 22)
 				{
-					//家1
+					//家1:2+16～22
 					BlockDrawHouse(0.0f, 0.0f, &dst, c);
 				}
-				else if (m_map[i][j] == 3)
+				else if (m_map[i][j] == 3 || m_map[i][j] == 23 || m_map[i][j] == 24 || m_map[i][j] == 25 || m_map[i][j] == 26 || m_map[i][j] == 27 || m_map[i][j] == 28 || m_map[i][j] == 29)
 				{
-					//家2
+					//家2:3+23～29
 					BlockDrawHouse(0.0f, 128.0f, &dst, c);
 				}
-				else if (m_map[i][j] == 4)
+				else if (m_map[i][j] == 4 || m_map[i][j] == 30 || m_map[i][j] == 31 || m_map[i][j] == 32 || m_map[i][j] == 33 || m_map[i][j] == 34 || m_map[i][j] == 35 || m_map[i][j] == 36)
 				{
-					//家3
+					//家3:4+30～36
 					BlockDrawHouse(0.0f, 256.0f, &dst, c);
 				}
-				else if (m_map[i][j] == 5)
+				else if (m_map[i][j] == 5 || m_map[i][j] == 37 || m_map[i][j] == 38 || m_map[i][j] == 39 || m_map[i][j] == 40 || m_map[i][j] == 41 || m_map[i][j] == 42 || m_map[i][j] == 43)
 				{
-					//家4
+					//家4:5+37～43
 					BlockDrawHouse(0.0f, 384.0f, &dst, c);
 				}
 				else if (m_map[i][j] == 6)
@@ -99,22 +100,22 @@ void CObjBlock::Draw()
 					//横ブロック
 					BlockDraw(0.0f, 64.0f, &dst, c);
 				}
-				else if (m_map[i][j] == 7)
+				else if (m_map[i][j] == 7 || m_map[i][j] == 44)
 				{
 					//左上L字
 					BlockDraw(64.0f, 0.0f, &dst, c);
 				}
-				else if (m_map[i][j] == 8)
+				else if (m_map[i][j] == 8 || m_map[i][j] == 45)
 				{
 					//左下L字
 					BlockDraw(64.0f, 64.0f, &dst, c);
 				}
-				else if (m_map[i][j] == 9)
+				else if (m_map[i][j] == 9 || m_map[i][j] == 46)
 				{
 					//右上L字
 					BlockDraw(128.0f, 0.0f, &dst, c);
 				}
-				else if (m_map[i][j] == 10)
+				else if (m_map[i][j] == 10 || m_map[i][j] == 47)
 				{
 					//右下L字
 					BlockDraw(128.0f, 64.0f, &dst, c);
@@ -189,6 +190,7 @@ void CObjBlock::BlockDrawHouse(float x, float y, RECT_F* dst, float c[])
 	//描画
 	Draw::Draw(2, &src, dst, c, 0.0f);
 }
+
 //BlockHit関数
 //引数1		float*	x		:判定を行うobjectのX位置
 //引数2		float*	y		:判定を行うobjectのY位置
@@ -249,7 +251,7 @@ void CObjBlock::BlockHit(
 						r = 360.0f - abs(r);
 
 					//lenがある一定の長さより短い場合判定に入る
-					if (len < 43.0f)
+					if (len < 88.0f)
 					{
 						//角度で上下左右を判定
 						if ((r < 45 && r >= 0) || r > 315)
@@ -257,7 +259,7 @@ void CObjBlock::BlockHit(
 							//右
 							*right = true;//主人公の左の部分が衝突している
 							*x = bx + 32.0f;//ブロックの位置+主人公の幅
-							-(*vx)*0.1f;//-VX*反発係数
+							*vx = 0.0f;//-VX*反発係数
 
 						}
 						if (r > 45 && r < 135)
@@ -265,14 +267,14 @@ void CObjBlock::BlockHit(
 							//上
 							*down = true;//主人公の下の部分が衝突している
 							*y = by - 32.0f;//ブロックの位置-主人公の幅
-							-(*vy)*0.1f;
+							*vy = 0.0f;
 						}
 						if (r > 135 && r < 225)
 						{
 							//左
 							*left = true;//主人公の右の部分が衝突している
 							*x = bx - 32.0f;//ブロックの位置-主人公の幅
-							-(*vx)*0.1f;//-VX*反発係数 -(*vx)*0.1f;
+							*vx = 0.0f;//-VX*反発係数 -(*vx)*0.1f;
 						}
 						if (r > 225 && r < 315)
 						{
@@ -281,7 +283,7 @@ void CObjBlock::BlockHit(
 							*y = by + 32.0f;//ブロックの位置+主人公の幅
 							if (*vy < 0)
 							{
-								-(*vy)*0.1f;
+								*vy = 0.0f;
 							}
 						}
 					}

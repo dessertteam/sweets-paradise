@@ -10,10 +10,11 @@ enum OBJ_NAME
 					OBJ_FENEMY,
 					OBJ_BLOCK,
 					OBJ_TITLE,
+					OBJ_HOLE,
 					OBJ_GAME_OVER,
 					OBJ_YUKIDARUMA,
+					OBJ_KURI,
 					OBJ_SYMMETRY,
-					OBJ_HOLE,
 					OBJ_TIME,
 					OBJ_CLEAR,
 };
@@ -35,6 +36,7 @@ enum HIT_ELEMENTS
 				 ELEMENT_BLUE,
 				 ELEMENT_BLACK,
 				 ELEMENT_WHITE,
+				 ELEMENT_SWEET,
 };
 //------------------------------------------------
 
@@ -68,6 +70,8 @@ struct UserData
 #include "ObjSymmetry.h"
 #include "ObjTime.h"
 #include "ObjClear.h"
+#include "ObjKuri.h"
+#include "Objhole.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

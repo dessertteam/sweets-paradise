@@ -3,7 +3,7 @@
 #include "GameL\WinInputs.h"
 #include "GameL\HitBoxManager.h"
 #include "GameHead.h"
-#include "ObjYukidaruma.h"
+#include "ObjKuri.h"
 #include "UtilityModule.h"
 
 //ランダム用ヘッダー
@@ -11,23 +11,35 @@
 #include <time.h>
 
 //イニシャライズ
-void CObjYukidaruma::Init()
+void CObjKuri::Init()
 {
 	m_x = 672.0f;
-	m_y = 96.0f;
+	m_y = 480.0f;
 
-	m_mx = -2;
+	m_mx = 8;
 	m_my = 0;
 
-	m_direc = 0;
-	memo = 2;
+	m_direc = 1;
+
+	memo = 8;
 
 	w_ranif = 0;
+
+	m_ani_time = 0;
+	m_ani_frame = 1;	//静止フレームを初期にする
+
+	m_ani_max_time = 2;//アニメーション間隔幅
 
 	srand(unsigned(time(NULL)));//ランダム情報を初期化
 	w_ranif = rand() % 3 + 1;
 	m_vx = 0.0f;
 	m_vy = 0.0f;
+
+	//壁情報記憶用
+	w_m_up = false;
+	w_m_down = false;
+	w_m_left = false;
+	w_m_right = false;
 
 	//blockとの衝突状態確認用
 	m_hit_up = false;
@@ -43,7 +55,7 @@ void CObjYukidaruma::Init()
 }
 
 //アクション
-void CObjYukidaruma::Action()
+void CObjKuri::Action()
 {
 	//初期位置からの移動
 	//左から判断していく
@@ -2244,16 +2256,16 @@ void CObjYukidaruma::Action()
 		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
-
-
 	m_x += m_mx;
 	m_y += m_my;
+	m_ani_time += 1;
 
 	////HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_x, m_y);
 
-	/*	//雪だるまが領域外に行かない処理
+	/*
+	//雪だるまが領域外に行かない処理
 	if (m_x + 32.0f > 800.0f) {
 	m_x = 800.0f - 32.0f;
 	}
@@ -2265,7 +2277,19 @@ void CObjYukidaruma::Action()
 	}
 	if (m_x < 0.0f) {
 	m_x = 0.0f;
-	}*/
+	}
+	*/
+	//栗のアニメーション？
+	if (m_ani_time > m_ani_max_time)
+	{
+		m_ani_frame += 1;
+		m_ani_time = 0;
+	}
+
+	if (m_ani_frame == 4)
+	{
+		m_ani_frame = 0;
+	}
 
 	//ブロックタイプ検知用の変数がないためのためのダミー
 	int d;
@@ -2284,8 +2308,13 @@ void CObjYukidaruma::Action()
 }
 
 //ドロー
-void CObjYukidaruma::Draw()
+void CObjKuri::Draw()
 {
+	int AniData[10] =
+	{
+		0,1,0,1,
+	};
+
 	//描画カラー情報　R=RED G=Green B=Blue A=Alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -2293,10 +2322,10 @@ void CObjYukidaruma::Draw()
 	RECT_F dst;//描画先表示位置
 
 			   //切り取り位置の設定
-	src.m_top = 192.0f;
-	src.m_left = 64.0f;
-	src.m_right = 0.0f;
-	src.m_bottom = 256.0f;
+	src.m_top = 0.0f;
+	src.m_left = 64.0f + AniData[m_ani_frame] * 64;
+	src.m_right = 0.0f + AniData[m_ani_frame] * 64;
+	src.m_bottom = 64.0f;
 
 	//表示位置の設定
 	dst.m_top = 0.0f + m_y;

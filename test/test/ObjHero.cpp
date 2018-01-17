@@ -6,7 +6,6 @@
 #include "GameHead.h"
 #include "ObjHero.h"
 #include "UtilityModule.h"
-#include"ObjBlock.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -15,6 +14,7 @@ using namespace GameL;
 void CObjHero::Init()
 {
 	m_x = 416.0f;
+	//m_y = 0.0f;
 	m_y = 544.0f;		//位置
 	m_vx = 0.0f;
 	m_vy = 0.0f;		//移動ベクトル
@@ -23,10 +23,12 @@ void CObjHero::Init()
 	m_ani_time = 0;
 	m_ani_frame = 1;	//静止フレームを初期にする
 
-	m_speed = 3.0f;	//主人公の速さ
+	z_cnt = 3;//Ｚキーの使用回数
+
+	m_speed = 2.0f;	//主人公の速さ
 	m_ani_max_time = 4;//アニメーション間隔幅
 
-	//blockとの衝突状態確認用
+					   //壁との衝突状態確認用
 	bool m_hit_up = false;
 	bool m_hit_down = false;
 	bool m_hit_left = false;
@@ -34,18 +36,16 @@ void CObjHero::Init()
 
 	m_block_type = 0; //blockの種類を確認用
 
-	//当たり判定用HitBoxを作成
+					  //当たり判定用HitBoxを作成
 	Hits::SetHitBox(this, m_x, m_y, 32, 32, ELEMENT_PLAYER, OBJ_HERO, 1);
 }
 
 //アクション
 void CObjHero::Action()
 {
-	
 	//移動ベクトルの破棄
 	m_vx = 0.0f;
 	m_vy = 0.0f;
-	
 
 	//主人公(蟻)の移動
 	if (Input::GetVKey(VK_RIGHT) == true)
@@ -64,19 +64,35 @@ void CObjHero::Action()
 	if (Input::GetVKey(VK_UP) == true)
 	{
 		m_y -= m_speed;
+		m_posture = 0.0f;
 		m_ani_time += 1;
 	}
 	if (Input::GetVKey(VK_DOWN) == true)
 	{
 		m_y += m_speed;
+		m_posture = 1.0f;
 		m_ani_time += 1;
 	}
 
 	//初期位置(予定)に戻る
-	if (Input::GetVKey('Z') == true)
+	if (z_cnt > 0)
 	{
-		m_x = 416.0f;
-		m_y = 544.0f;
+		if (Input::GetVKey('Z') == true)
+		{
+			if (m_f == true)
+			{
+				m_x = 416.0f;
+				m_y = 544.0f;
+				m_vx = 0.0f;
+				m_vy = 0.0f;
+				z_cnt--;
+				m_f = false;
+			}
+		}
+		else
+		{
+			m_f = true;
+		}
 	}
 
 	//端から端の処理
@@ -119,14 +135,13 @@ void CObjHero::Action()
 		this->SetStatus(false);//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);//主人公機が所有するHitBoxに削除する。
 
-		//主人公機消滅でシーンをゲームオーバーに移行する
+								 //主人公機消滅でシーンをゲームオーバーに移行する
 		Scene::SetScene(new CSceneGameOver());
 	}
-	
+
 	//位置の更新
 	m_x += m_vx;
 	m_y += m_vy;
-
 }
 
 //ドロー
@@ -143,7 +158,7 @@ void CObjHero::Draw()
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
-	//切り取り位置の設定
+			   //切り取り位置の設定
 	src.m_top = 0.0f;
 	src.m_left = 128.0f + AniData[m_ani_frame] * 64;
 	src.m_right = 192.0f + AniData[m_ani_frame] * 64;

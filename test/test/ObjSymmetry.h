@@ -20,7 +20,13 @@ private:
 	float m_vy;
 	float m_speed; //速さ
 
-				   //blockとの衝突状態確認用
+	float m_mx;//雪のX移動保存用
+	float m_my;//雪のY移動保存用
+	int m_direc;//雪の向き用 0:左,1:右,2:上,3:下
+	float memo;//移動用変数
+	int w_ranif; //ランダムイフ用
+
+				 //blockとの衝突状態確認用
 	bool m_hit_up;
 	bool m_hit_down;
 	bool m_hit_left;

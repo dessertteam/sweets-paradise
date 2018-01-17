@@ -31,9 +31,6 @@
     <Filter Include="ソース ファイル\ゆきだるま">
       <UniqueIdentifier>{aac5953a-7ea7-4679-b847-03fe20672d5f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\主人公%28蟻%29\穴">
-      <UniqueIdentifier>{286f8474-962a-44e1-8d90-264a960d1e4e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\時間">
       <UniqueIdentifier>{7f29666d-afff-4134-8a11-4fa94fd0283c}</UniqueIdentifier>
     </Filter>
@@ -42,6 +39,12 @@
     </Filter>
     <Filter Include="ソース ファイル\ゲームクリア">
       <UniqueIdentifier>{6ded3dae-3b6d-4cb6-985b-142291090012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\クリキントン">
+      <UniqueIdentifier>{ae35d475-5eaf-41e7-8c2d-458cc275c56b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ホール">
+      <UniqueIdentifier>{0e21f26f-cf01-4d7b-9191-43ef47365526}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -111,9 +114,6 @@
     <ClInclude Include="SceneTitle.h">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClInclude>
-    <ClInclude Include="Hole.h">
-      <Filter>ソース ファイル\主人公%28蟻%29\穴</Filter>
-    </ClInclude>
     <ClInclude Include="ObjGameOver.h">
       <Filter>ソース ファイル\ゲームオーバー</Filter>
     </ClInclude>
@@ -128,6 +128,12 @@
     </ClInclude>
     <ClInclude Include="ObjClear.h">
       <Filter>ソース ファイル\ゲームクリア</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjKuri.h">
+      <Filter>ソース ファイル\クリキントン</Filter>
+    </ClInclude>
+    <ClInclude Include="Objhole.h">
+      <Filter>ソース ファイル\ホール</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -194,9 +200,6 @@
     <ClCompile Include="SceneTitle.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClCompile>
-    <ClCompile Include="Hole.cpp">
-      <Filter>ソース ファイル\主人公%28蟻%29\穴</Filter>
-    </ClCompile>
     <ClCompile Include="ObjGameOver.cpp">
       <Filter>ソース ファイル\ゲームオーバー</Filter>
     </ClCompile>
@@ -211,6 +214,12 @@
     </ClCompile>
     <ClCompile Include="ObjClear.cpp">
       <Filter>ソース ファイル\ゲームクリア</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjKuri.cpp">
+      <Filter>ソース ファイル\クリキントン</Filter>
+    </ClCompile>
+    <ClCompile Include="Objhole.cpp">
+      <Filter>ソース ファイル\ホール</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

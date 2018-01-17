@@ -36,13 +36,16 @@ private:
 	float m_vy;
 	float m_posture;//姿勢
 
+	bool m_f;//なんかいるみたい
+	int z_cnt;//Ｚキーのカウント用
+
 	int m_ani_time;		//アニメーションフレーム動作間隔
 	int m_ani_frame;	//描画フレーム
 
 	float m_speed;	//主人公(蟻)の速さ
 	float m_ani_max_time;//アニメーションフレーム動作間隔最大値
 
-						 //blockとの衝突状態確認用
+						 //壁との衝突状態確認用
 	bool m_hit_up;
 	bool m_hit_down;
 	bool m_hit_left;

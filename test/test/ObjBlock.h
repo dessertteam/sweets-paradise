@@ -15,7 +15,7 @@ public:
 	void Action();	//アクション
 	void Draw();	//ドロー
 
-	//ブロックとの当たり判定
+					//ブロックとの当たり判定
 	void BlockHit(
 		float* x, float* y,
 		bool* up, bool* down, bool* left, bool* right,
@@ -27,4 +27,6 @@ private:
 
 	int m_map[19][25];	//マップ情報
 	int m_block[19][25]; //データ情報
+	int m_x;
+	int m_y;
 };
