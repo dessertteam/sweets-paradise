@@ -16,7 +16,7 @@ Hole::Hole()
 Hole::~Hole()
 {
 }
-//イニット
+//イニシャライズ
  void Hole::Init()
 {
 
@@ -43,11 +43,6 @@ Hole::~Hole()
  void Hole::Draw()
  {
 	
-	 int AniData[2] =
-	 {
-		 0,1,
-	 };
-
 	 //描画カラー情報　R=RED G=Green B=Blue A=Alpha(透過情報)
 	 float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 

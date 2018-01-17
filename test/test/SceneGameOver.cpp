@@ -53,5 +53,5 @@ void CSceneGameOver::Scene()
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	Font::StrDraw(L"GameOver", 300, 250, 50, c);
-
+	Font::StrDraw(L"Push   EnterKey", 300, 400, 30, c);
 }
