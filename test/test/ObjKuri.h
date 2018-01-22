@@ -41,7 +41,7 @@ private:
 	float memo;//移動用変数
 	int m_direc;//栗の向き用 0:左,1:右,2:上,3:下
 
-
+	int m_time;//時間計算用
 	int m_ani_time;		//栗のアニメーションフレーム動作間隔
 	int m_ani_frame;	//栗の描画フレーム
 

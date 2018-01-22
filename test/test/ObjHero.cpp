@@ -7,6 +7,8 @@
 #include "ObjHero.h"
 #include "UtilityModule.h"
 
+#include <time.h>
+
 //使用するネームスペース
 using namespace GameL;
 
@@ -20,6 +22,7 @@ void CObjHero::Init()
 	m_vy = 0.0f;		//移動ベクトル
 	m_posture = 0.0f;	//右向き0.0f 左向き1.0f
 
+	m_time = 0;
 	m_ani_time = 0;
 	m_ani_frame = 1;	//静止フレームを初期にする
 
@@ -93,8 +96,9 @@ void CObjHero::Action()
 		}
 	}
 
-	//端から端の処理
-	if (m_x >= 795.0f) {
+	//主人公(蟻)が領域外から逆側にワープする処理
+	if (m_x >= 795.0f)
+	{
 		m_y = 288.0f;
 		m_x = -31.0f;
 	}
@@ -114,6 +118,11 @@ void CObjHero::Action()
 	{
 		m_ani_frame = 0;
 	}
+
+	m_time += 1;
+
+	if (m_time > 1800)
+		m_speed = 4.0f;
 
 	//ブロックとの当たり判定実行
 	CObjBlock* pb = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);

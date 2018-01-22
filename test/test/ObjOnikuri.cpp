@@ -3,7 +3,7 @@
 #include "GameL\WinInputs.h"
 #include "GameL\HitBoxManager.h"
 #include "GameHead.h"
-#include "ObjYukidaruma.h"
+#include "ObjOnikuri.h"
 #include "UtilityModule.h"
 
 //ランダム用ヘッダー
@@ -11,28 +11,35 @@
 #include <time.h>
 
 //イニシャライズ
-void CObjYukidaruma::Init()
+void CObjOnikuri::Init()
 {
-	m_x = 672.0f;
-	m_y = 96.0f;
+	m_x = 412.0f;
+	m_y = 256.0f;
 
-	m_mx = -2;
+	m_mx = 8;
 	m_my = 0;
 
-	m_direc = 0;
-	memo = 2;
+	m_direc = 1;
+
+	memo = 8;
 
 	w_ranif = 0;
 
 	m_ani_time = 0;
-	m_ani_frame = 0;	//静止フレームを初期にする
+	m_ani_frame = 1;	//静止フレームを初期にする
 
-	m_ani_max_time = 1800;//アニメーション間隔幅
+	m_ani_max_time = 2;//アニメーション間隔幅
 
 	srand(unsigned(time(NULL)));//ランダム情報を初期化
 	w_ranif = rand() % 3 + 1;
 	m_vx = 0.0f;
 	m_vy = 0.0f;
+
+	//壁情報記憶用
+	w_m_up = false;
+	w_m_down = false;
+	w_m_left = false;
+	w_m_right = false;
 
 	//blockとの衝突状態確認用
 	m_hit_up = false;
@@ -44,11 +51,11 @@ void CObjYukidaruma::Init()
 	UnitVec(&m_vy, &m_vx);
 
 	//当たり判定用HitBoxを作成
-	Hits::SetHitBox(this, m_x, m_y, 32, 32, ELEMENT_ENEMY, OBJ_YUKIDARUMA, 1);
+	Hits::SetHitBox(this, m_x, m_y, 32, 32, ELEMENT_ENEMY, OBJ_ONIKURI, 1);
 }
 
 //アクション
-void CObjYukidaruma::Action()
+void CObjOnikuri::Action()
 {
 	//初期位置からの移動
 	//左から判断していく
@@ -2249,8 +2256,6 @@ void CObjYukidaruma::Action()
 		m_mx = -memo; m_my = 0; m_direc = 0;
 		w_ranif = rand() % 2 + 1;
 	}
-
-
 	m_x += m_mx;
 	m_y += m_my;
 	m_ani_time += 1;
@@ -2259,22 +2264,8 @@ void CObjYukidaruma::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_x, m_y);
 
-	if (m_ani_time > 1800)
-		memo = 4.0f;
-
-	//栗のアニメーション？
-	if (m_ani_time > m_ani_max_time)
-	{
-		m_ani_frame += 1;
-		m_ani_time = 0;
-	}
-
-	if (m_ani_frame == 4)
-	{
-		m_ani_frame = 0;
-	}
-
-	/*	//雪だるまが領域外に行かない処理
+	/*
+	//雪だるまが領域外に行かない処理
 	if (m_x + 32.0f > 800.0f) {
 	m_x = 800.0f - 32.0f;
 	}
@@ -2286,7 +2277,19 @@ void CObjYukidaruma::Action()
 	}
 	if (m_x < 0.0f) {
 	m_x = 0.0f;
-	}*/
+	}
+	*/
+	//栗のアニメーション？
+	if (m_ani_time > m_ani_max_time)
+	{
+		m_ani_frame += 1;
+		m_ani_time = 0;
+	}
+
+	if (m_ani_frame == 4)
+	{
+		m_ani_frame = 0;
+	}
 
 	//ブロックタイプ検知用の変数がないためのためのダミー
 	int d;
@@ -2302,11 +2305,10 @@ void CObjYukidaruma::Action()
 	//位置の更新
 	m_x += m_vx;
 	m_y += m_vy;
-
 }
 
 //ドロー
-void CObjYukidaruma::Draw()
+void CObjOnikuri::Draw()
 {
 	int AniData[10] =
 	{
@@ -2321,8 +2323,8 @@ void CObjYukidaruma::Draw()
 
 			   //切り取り位置の設定
 	src.m_top = 192.0f;
-	src.m_left = 64.0f + AniData[m_ani_frame] * 64;
-	src.m_right = 0.0f + AniData[m_ani_frame] * 64;
+	src.m_left = 192.0f + AniData[m_ani_frame] * 64;
+	src.m_right = 128.0f + AniData[m_ani_frame] * 64;
 	src.m_bottom = 256.0f;
 
 	//表示位置の設定

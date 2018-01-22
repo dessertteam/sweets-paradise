@@ -39,6 +39,8 @@ private:
 	bool m_f;//なんかいるみたい
 	int z_cnt;//Ｚキーのカウント用
 
+
+	int m_time;         //主人公スピード変換用
 	int m_ani_time;		//アニメーションフレーム動作間隔
 	int m_ani_frame;	//描画フレーム
 

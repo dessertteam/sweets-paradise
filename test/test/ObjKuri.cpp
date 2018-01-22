@@ -16,19 +16,20 @@ void CObjKuri::Init()
 	m_x = 672.0f;
 	m_y = 480.0f;
 
-	m_mx = 8;
+	m_mx = 2;
 	m_my = 0;
 
 	m_direc = 1;
 
-	memo = 8;
+	memo = 2;
 
 	w_ranif = 0;
+	m_time = 0;
 
 	m_ani_time = 0;
 	m_ani_frame = 1;	//静止フレームを初期にする
 
-	m_ani_max_time = 2;//アニメーション間隔幅
+	m_ani_max_time = 8;//アニメーション間隔幅
 
 	srand(unsigned(time(NULL)));//ランダム情報を初期化
 	w_ranif = rand() % 3 + 1;
@@ -51,12 +52,13 @@ void CObjKuri::Init()
 	UnitVec(&m_vy, &m_vx);
 
 	//当たり判定用HitBoxを作成
-	Hits::SetHitBox(this, m_x, m_y, 32, 32, ELEMENT_ENEMY, OBJ_YUKIDARUMA, 1);
+	Hits::SetHitBox(this, m_x, m_y, 32, 32, ELEMENT_ENEMY, OBJ_KURI, 1);
 }
 
 //アクション
 void CObjKuri::Action()
 {
+	m_time++;
 	//初期位置からの移動
 	//左から判断していく
 	//[2][2]
@@ -2305,6 +2307,12 @@ void CObjKuri::Action()
 	//位置の更新
 	m_x += m_vx;
 	m_y += m_vy;
+
+	if (m_time > 1800)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+	}
 }
 
 //ドロー

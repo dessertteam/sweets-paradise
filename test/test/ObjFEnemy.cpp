@@ -34,6 +34,11 @@ void CObjFEnemy::Init()
 
 	memo = 1;
 
+	m_ani_time = 0;
+	m_ani_frame = 0;	//静止フレームを初期にする
+
+	m_ani_max_time = 1800;//アニメーション間隔幅
+
 	w_ranif = 0;
 	srand(unsigned(time(NULL)));//ランダム情報を初期化
 	w_ranif = rand() % 3 + 1;
@@ -2284,6 +2289,22 @@ void CObjFEnemy::Action()
 
 	m_x += m_mx;
 	m_y += m_my;
+	m_ani_time += 1;
+
+	if (m_ani_time > 1800)
+		memo = 2.0f;
+
+	//栗のアニメーション？
+	if (m_ani_time > m_ani_max_time)
+	{
+		m_ani_frame += 1;
+		m_ani_time = 0;
+	}
+
+	if (m_ani_frame == 4)
+	{
+		m_ani_frame = 0;
+	}
 
 	/*
 	//お化けが領域外に行かない処理
@@ -2327,6 +2348,11 @@ void CObjFEnemy::Action()
 //ドロー
 void CObjFEnemy::Draw()
 {
+	int AniData[10] =
+	{
+		0,1,0,1,
+	};
+
 	//描画カラー情報　R=RED G=Green B=Blue A=Alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -2335,8 +2361,8 @@ void CObjFEnemy::Draw()
 
 			   //切り取り位置の設定
 	src.m_top = 128.0f;
-	src.m_left = 64.0f;
-	src.m_right = 0.0f;
+	src.m_left = 64.0f + AniData[m_ani_frame] * 64;
+	src.m_right = 0.0f + AniData[m_ani_frame] * 64;
 	src.m_bottom = 192.0f;
 
 	//ブロック情報を持ってくる

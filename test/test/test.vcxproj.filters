@@ -46,6 +46,9 @@
     <Filter Include="ソース ファイル\ホール">
       <UniqueIdentifier>{0e21f26f-cf01-4d7b-9191-43ef47365526}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\オニクリキントン">
+      <UniqueIdentifier>{de04f108-55ee-40bf-9039-e502be14a9f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -135,6 +138,9 @@
     <ClInclude Include="Objhole.h">
       <Filter>ソース ファイル\ホール</Filter>
     </ClInclude>
+    <ClInclude Include="ObjOnikuri.h">
+      <Filter>ソース ファイル\オニクリキントン</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -220,6 +226,9 @@
     </ClCompile>
     <ClCompile Include="Objhole.cpp">
       <Filter>ソース ファイル\ホール</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjOnikuri.cpp">
+      <Filter>ソース ファイル\オニクリキントン</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

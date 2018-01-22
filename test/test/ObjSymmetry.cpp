@@ -29,6 +29,11 @@ void CObjSymmetry::Init()
 
 	memo = 2;
 
+	m_ani_time = 0;
+	m_ani_frame = 0;	//静止フレームを初期にする
+
+	m_ani_max_time = 1800;//アニメーション間隔幅
+
 	w_ranif = 0;
 
 	srand(unsigned(time(NULL)));//ランダム情報を初期化
@@ -2270,6 +2275,7 @@ void CObjSymmetry::Action()
 
 	m_x += m_mx;
 	m_y += m_my;
+	m_ani_time += 1;
 
 
 	/*
@@ -2311,6 +2317,22 @@ void CObjSymmetry::Action()
 	//-----------------------------------------------------------------
 
 	*/
+
+	if (m_ani_time > 1800)
+		memo = 4.0f;
+
+	//栗のアニメーション？
+	if (m_ani_time > m_ani_max_time)
+	{
+		m_ani_frame += 1;
+		m_ani_time = 0;
+	}
+
+	if (m_ani_frame == 4)
+	{
+		m_ani_frame = 0;
+	}
+
 	//ブロックタイプ検知用の変数がないためのためのダミー
 	int d;
 
@@ -2334,6 +2356,11 @@ void CObjSymmetry::Action()
 //ドロー
 void CObjSymmetry::Draw()
 {
+	int AniData[10] =
+	{
+		0,1,0,1,
+	};
+
 	//描画カラー情報
 	float c[4] = { 1.0f, 1.0f, 0.0f, 1.0f };
 
@@ -2342,8 +2369,8 @@ void CObjSymmetry::Draw()
 
 	//切り取り位置の設定
 	src.m_top = 64.0f;
-	src.m_left = 0.0f;
-	src.m_right = 64.0f;
+	src.m_left = 0.0f + AniData[m_ani_frame] * 64;
+	src.m_right = 64.0f + AniData[m_ani_frame] * 64;
 	src.m_bottom = 128.0f;
 	//表示位置の設定
 	dst.m_top = 0.0f + m_y;

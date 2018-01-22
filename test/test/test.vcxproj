@@ -141,6 +141,7 @@
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="Objhole.h" />
     <ClInclude Include="ObjKuri.h" />
+    <ClInclude Include="ObjOnikuri.h" />
     <ClInclude Include="ObjSymmetry.h" />
     <ClInclude Include="ObjTime.h" />
     <ClInclude Include="ObjTitle.h" />
@@ -171,6 +172,7 @@
     <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="Objhole.cpp" />
     <ClCompile Include="ObjKuri.cpp" />
+    <ClCompile Include="ObjOnikuri.cpp" />
     <ClCompile Include="ObjSymmetry.cpp" />
     <ClCompile Include="ObjTime.cpp" />
     <ClCompile Include="ObjTitle.cpp" />

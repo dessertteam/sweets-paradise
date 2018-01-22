@@ -14,6 +14,7 @@ enum OBJ_NAME
 					OBJ_GAME_OVER,
 					OBJ_YUKIDARUMA,
 					OBJ_KURI,
+					OBJ_ONIKURI,
 					OBJ_SYMMETRY,
 					OBJ_TIME,
 					OBJ_CLEAR,
@@ -71,6 +72,7 @@ struct UserData
 #include "ObjTime.h"
 #include "ObjClear.h"
 #include "ObjKuri.h"
+#include "ObjOnikuri.h"
 #include "Objhole.h"
 //------------------------------------------------
 
