@@ -5,7 +5,6 @@
 //GameLで使用するヘッダー
 #include "GameL\SceneObjManager.h"
 #include "GameL\DrawFont.h"
-#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -13,6 +12,7 @@ using namespace GameL;
 //使用ヘッダー
 #include "SceneClear.h"
 #include "GameHead.h"
+#include "GameL\Audio.h"
 
 //コンストラクタ
 CSceneClear::CSceneClear()
@@ -29,9 +29,6 @@ CSceneClear::~CSceneClear()
 //初期化メソッド
 void CSceneClear::InitScene()
 {
-	Font::SetStrTex(L"GameClear");
-
-	/*
 	//音楽読み込み
 	Audio::LoadAudio(0, L"ゲームクリア(仮2).wav", BACK_MUSIC);
 
@@ -40,7 +37,8 @@ void CSceneClear::InitScene()
 	v = Audio::VolumeMaster((1.0 - v));
 
 	//音楽スタート
-	Audio::Start(0);*/
+	Audio::Start(0);
+
 
 	//クリアオブジェクト作成
 	CObjClear* obj = new CObjClear();		//クリアオブジェクト作成
@@ -50,5 +48,8 @@ void CSceneClear::InitScene()
 //実行中メソッド
 void CSceneClear::Scene()
 {
+	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
+	Font::StrDraw(L"GameClear", 300, 250, 50, c);
+	Font::StrDraw(L"Push   EnterKey", 300, 400, 30, c);
 }

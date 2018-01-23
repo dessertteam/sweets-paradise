@@ -57,12 +57,6 @@ void CObjBlock::Draw()
 	dst.m_bottom = 600.0f;
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
-	/*//切り取り位置の設定
-	src.m_top = 256.0f;
-	src.m_left = 512.0f;
-	src.m_right = 0.0f;
-	src.m_bottom = 512.0f;*/
-
 	for (int i = 0; i < 19; i++)
 	{
 		for (int j = 0; j < 25; j++)
@@ -74,28 +68,28 @@ void CObjBlock::Draw()
 				dst.m_left = j*32.0f;
 				dst.m_right = dst.m_left + 32.0f;
 				dst.m_bottom = dst.m_top + 32.0f;
-
-				if (m_map[i][j] == 2 || m_map[i][j] == 16 || m_map[i][j] == 17 || m_map[i][j] == 18 || m_map[i][j] == 19 || m_map[i][j] == 20 || m_map[i][j] == 21 || m_map[i][j] == 22)
+				/*
+				if (m_map[i][j] == 2|| m_map[i][j] ==16 || m_map[i][j] ==17 || m_map[i][j] ==18 || m_map[i][j] == 19 || m_map[i][j] == 20 || m_map[i][j] == 21 || m_map[i][j] == 22)
 				{
-					//家1:2+16～22
-					BlockDrawHouse(0.0f, 0.0f, &dst, c);
+				//家1:2+16～22
+				BlockDrawHouse(0.0f, 0.0f, &dst, c);
 				}
-				else if (m_map[i][j] == 3 || m_map[i][j] == 23 || m_map[i][j] == 24 || m_map[i][j] == 25 || m_map[i][j] == 26 || m_map[i][j] == 27 || m_map[i][j] == 28 || m_map[i][j] == 29)
+				else if (m_map[i][j] == 3 || m_map[i][j] == 23 || m_map[i][j] == 24 || m_map[i][j] == 25 || m_map[i][j] == 26 || m_map[i][j] == 27 || m_map[i][j] == 28 || m_map[i][j] == 29 )
 				{
-					//家2:3+23～29
-					BlockDrawHouse(0.0f, 128.0f, &dst, c);
+				//家2:3+23～29
+				BlockDrawHouse(0.0f, 128.0f, &dst, c);
 				}
 				else if (m_map[i][j] == 4 || m_map[i][j] == 30 || m_map[i][j] == 31 || m_map[i][j] == 32 || m_map[i][j] == 33 || m_map[i][j] == 34 || m_map[i][j] == 35 || m_map[i][j] == 36)
 				{
-					//家3:4+30～36
-					BlockDrawHouse(0.0f, 256.0f, &dst, c);
+				//家3:4+30～36
+				BlockDrawHouse(0.0f, 256.0f, &dst, c);
 				}
 				else if (m_map[i][j] == 5 || m_map[i][j] == 37 || m_map[i][j] == 38 || m_map[i][j] == 39 || m_map[i][j] == 40 || m_map[i][j] == 41 || m_map[i][j] == 42 || m_map[i][j] == 43)
 				{
-					//家4:5+37～43
-					BlockDrawHouse(0.0f, 384.0f, &dst, c);
-				}
-				else if (m_map[i][j] == 6)
+				//家4:5+37～43
+				BlockDrawHouse(0.0f, 384.0f, &dst, c);
+				}*/
+				if (m_map[i][j] == 6)
 				{
 					//横ブロック
 					BlockDraw(0.0f, 64.0f, &dst, c);
@@ -145,10 +139,14 @@ void CObjBlock::Draw()
 					//十字
 					BlockDraw(320.0f, 0.0f, &dst, c);
 				}
-				else
+				else if (m_map[i][j] == 1)
 				{
 					//縦ブロック
 					BlockDraw(0.0f, 0.0f, &dst, c);
+				}
+				else
+				{
+					;
 				}
 			}
 		}
@@ -173,6 +171,7 @@ void CObjBlock::BlockDraw(float x, float y, RECT_F* dst, float c[])
 	Draw::Draw(1, &src, dst, c, 0.0f);
 }
 
+/*
 //BlockDrawHouseMethod関数
 //引数1	float x		:リソース切り取り位置X
 //引数2	float y		:リソース切り取り位置Y
@@ -182,14 +181,14 @@ void CObjBlock::BlockDraw(float x, float y, RECT_F* dst, float c[])
 //設定できる
 void CObjBlock::BlockDrawHouse(float x, float y, RECT_F* dst, float c[])
 {
-	RECT_F src;
-	src.m_top = y;
-	src.m_left = x;
-	src.m_right = src.m_left + 128.0f;
-	src.m_bottom = src.m_top + 128.0f;
-	//描画
-	Draw::Draw(2, &src, dst, c, 0.0f);
-}
+RECT_F src;
+src.m_top = y;
+src.m_left = x;
+src.m_right = src.m_left + 128.0f;
+src.m_bottom = src.m_top + 128.0f;
+//描画
+Draw::Draw(2, &src, dst, c, 0.0f);
+}*/
 
 //BlockHit関数
 //引数1		float*	x		:判定を行うobjectのX位置

@@ -16,20 +16,11 @@
     <Filter Include="ソース ファイル\主人公%28蟻%29">
       <UniqueIdentifier>{2de77de8-4a7c-44fa-99cb-212cb727a047}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\敵（おばけ）">
-      <UniqueIdentifier>{7848930f-a1fe-4783-819d-e51274428a13}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\タイトル">
       <UniqueIdentifier>{248969eb-3857-4023-8feb-db34d3e23f3d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\ドーナツ">
-      <UniqueIdentifier>{43de60e7-fe8b-452d-b373-d71f1a4ac2fb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\ブロック">
       <UniqueIdentifier>{fca6f02a-bfcd-4615-9a98-1e68dc57f2d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\ゆきだるま">
-      <UniqueIdentifier>{aac5953a-7ea7-4679-b847-03fe20672d5f}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\時間">
       <UniqueIdentifier>{7f29666d-afff-4134-8a11-4fa94fd0283c}</UniqueIdentifier>
@@ -40,14 +31,29 @@
     <Filter Include="ソース ファイル\ゲームクリア">
       <UniqueIdentifier>{6ded3dae-3b6d-4cb6-985b-142291090012}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\クリキントン">
-      <UniqueIdentifier>{ae35d475-5eaf-41e7-8c2d-458cc275c56b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\ホール">
       <UniqueIdentifier>{0e21f26f-cf01-4d7b-9191-43ef47365526}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\オニクリキントン">
+    <Filter Include="ソース ファイル\敵達">
+      <UniqueIdentifier>{8004fefb-6522-458e-93a4-903329d41f37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\敵達\オニクリキントン">
       <UniqueIdentifier>{de04f108-55ee-40bf-9039-e502be14a9f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\敵達\クリキントン">
+      <UniqueIdentifier>{ae35d475-5eaf-41e7-8c2d-458cc275c56b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\敵達\ドーナツ">
+      <UniqueIdentifier>{43de60e7-fe8b-452d-b373-d71f1a4ac2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\敵達\ゆきだるま">
+      <UniqueIdentifier>{aac5953a-7ea7-4679-b847-03fe20672d5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\敵達\敵（おばけ）">
+      <UniqueIdentifier>{7848930f-a1fe-4783-819d-e51274428a13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\スイーツ">
+      <UniqueIdentifier>{cb962631-ff3f-488a-8ab1-6089412ebf75}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -97,10 +103,10 @@
       <Filter>ソース ファイル\主人公%28蟻%29</Filter>
     </ClInclude>
     <ClInclude Include="ObjFEnemy.h">
-      <Filter>ソース ファイル\敵（おばけ）</Filter>
+      <Filter>ソース ファイル\敵達\敵（おばけ）</Filter>
     </ClInclude>
     <ClInclude Include="ObjYukidaruma.h">
-      <Filter>ソース ファイル\ゆきだるま</Filter>
+      <Filter>ソース ファイル\敵達\ゆきだるま</Filter>
     </ClInclude>
     <ClInclude Include="ObjBlock.h">
       <Filter>ソース ファイル\ブロック</Filter>
@@ -109,7 +115,7 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="ObjSymmetry.h">
-      <Filter>ソース ファイル\ドーナツ</Filter>
+      <Filter>ソース ファイル\敵達\ドーナツ</Filter>
     </ClInclude>
     <ClInclude Include="ObjTitle.h">
       <Filter>ソース ファイル\タイトル</Filter>
@@ -133,13 +139,16 @@
       <Filter>ソース ファイル\ゲームクリア</Filter>
     </ClInclude>
     <ClInclude Include="ObjKuri.h">
-      <Filter>ソース ファイル\クリキントン</Filter>
+      <Filter>ソース ファイル\敵達\クリキントン</Filter>
     </ClInclude>
     <ClInclude Include="Objhole.h">
       <Filter>ソース ファイル\ホール</Filter>
     </ClInclude>
     <ClInclude Include="ObjOnikuri.h">
-      <Filter>ソース ファイル\オニクリキントン</Filter>
+      <Filter>ソース ファイル\敵達\オニクリキントン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSweets.h">
+      <Filter>ソース ファイル\スイーツ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -183,13 +192,13 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="ObjFEnemy.cpp">
-      <Filter>ソース ファイル\敵（おばけ）</Filter>
+      <Filter>ソース ファイル\敵達\敵（おばけ）</Filter>
     </ClCompile>
     <ClCompile Include="ObjHero.cpp">
       <Filter>ソース ファイル\主人公%28蟻%29</Filter>
     </ClCompile>
     <ClCompile Include="ObjYukidaruma.cpp">
-      <Filter>ソース ファイル\ゆきだるま</Filter>
+      <Filter>ソース ファイル\敵達\ゆきだるま</Filter>
     </ClCompile>
     <ClCompile Include="ObjBlock.cpp">
       <Filter>ソース ファイル\ブロック</Filter>
@@ -198,7 +207,7 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="ObjSymmetry.cpp">
-      <Filter>ソース ファイル\ドーナツ</Filter>
+      <Filter>ソース ファイル\敵達\ドーナツ</Filter>
     </ClCompile>
     <ClCompile Include="ObjTitle.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
@@ -222,13 +231,16 @@
       <Filter>ソース ファイル\ゲームクリア</Filter>
     </ClCompile>
     <ClCompile Include="ObjKuri.cpp">
-      <Filter>ソース ファイル\クリキントン</Filter>
+      <Filter>ソース ファイル\敵達\クリキントン</Filter>
     </ClCompile>
     <ClCompile Include="Objhole.cpp">
       <Filter>ソース ファイル\ホール</Filter>
     </ClCompile>
     <ClCompile Include="ObjOnikuri.cpp">
-      <Filter>ソース ファイル\オニクリキントン</Filter>
+      <Filter>ソース ファイル\敵達\オニクリキントン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjSweets.cpp">
+      <Filter>ソース ファイル\スイーツ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

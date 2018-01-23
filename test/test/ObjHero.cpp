@@ -6,21 +6,26 @@
 #include "GameHead.h"
 #include "ObjHero.h"
 #include "UtilityModule.h"
+#include "GameL\DrawFont.h"
 
 #include <time.h>
 
 //使用するネームスペース
 using namespace GameL;
 
+
+
+
 //イニシャライズ
 void CObjHero::Init()
 {
 	m_x = 416.0f;
-	//m_y = 0.0f;
 	m_y = 544.0f;		//位置
 	m_vx = 0.0f;
 	m_vy = 0.0f;		//移動ベクトル
 	m_posture = 0.0f;	//右向き0.0f 左向き1.0f
+	GetSweets = 0;//取った数
+	Point = 0;//ポイント
 
 	m_time = 0;
 	m_ani_time = 0;
@@ -73,6 +78,37 @@ void CObjHero::Action()
 	{
 		m_y += m_speed;
 		m_ani_time += 1;
+	}
+
+	CObjSweets* SweetsBlock = (CObjSweets*)Objs::GetObj(OBJ_SWEETS);
+	if (SweetsBlock->GetMap((m_x + 16) / 32, (m_y + 16) / 32) == 2)
+	{
+		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
+		GetSweets += 1;
+		Point += 100;
+	}
+	if (SweetsBlock->GetMap((m_x + 16) / 32, (m_y + 16) / 32) == 3)
+	{
+		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
+		GetSweets += 1;
+		Point += 200;
+	}
+	if (SweetsBlock->GetMap((m_x + 16) / 32, (m_y + 16) / 32) == 4)
+	{
+		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
+		GetSweets += 1;
+		Point += 300;
+	}
+	if (SweetsBlock->GetMap((m_x + 16) / 32, (m_y + 16) / 32) == 5)
+	{
+		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
+		GetSweets += 1;
+		Point += 400;
+	}
+
+	if (GetSweets == 22 && m_x == 416 && m_y == 544)
+	{
+		Scene::SetScene(new CSceneClear());
 	}
 
 	//初期位置(予定)に戻る
@@ -165,7 +201,11 @@ void CObjHero::Draw()
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
-			   //切り取り位置の設定
+	wchar_t str[128];
+	swprintf_s(str, L"%d", Point);//秒の値を文字列化
+	Font::StrDraw(str, 740, 10, 20, c);
+
+	//切り取り位置の設定
 	src.m_top = 0.0f;
 	src.m_left = 128.0f + AniData[m_ani_frame] * 64;
 	src.m_right = 192.0f + AniData[m_ani_frame] * 64;

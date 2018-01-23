@@ -8,8 +8,8 @@ using namespace GameL;
 class CObjHero : public CObj
 {
 public:
-	CObjHero() {}
-	~CObjHero() {}
+	CObjHero() {};	//マップ情報
+	~CObjHero() {};
 
 	void Init();	//イニシャライズ
 	void Action();	//アクション
@@ -36,6 +36,8 @@ private:
 	float m_vy;
 	float m_posture;//姿勢
 
+	int Point;//ポイント
+	int GetSweets;//取ったスイーツの数
 	bool m_f;//なんかいるみたい
 	int z_cnt;//Ｚキーのカウント用
 

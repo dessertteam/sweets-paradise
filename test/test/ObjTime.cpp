@@ -27,7 +27,7 @@ void CObjTime::Action()
 	m_time2++;
 	m_time3++;
 
-	if (m_time2>1800)
+	if (m_time2 > 1800)
 	{
 		m_time2 = 0;
 
