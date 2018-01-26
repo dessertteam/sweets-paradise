@@ -18,6 +18,7 @@ enum OBJ_NAME
 					OBJ_SYMMETRY,
 					OBJ_TIME,
 					OBJ_CLEAR,
+					OBJ_ALLCLEAR,
 					OBJ_SWEETS,
 };
 //------------------------------------------------
@@ -76,6 +77,7 @@ struct UserData
 #include "ObjOnikuri.h"
 #include "Objhole.h"
 #include "ObjSweets.h"
+#include "ObjAllClear.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -83,6 +85,7 @@ struct UserData
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
 #include "SceneClear.h"
+#include "SceneAllClear.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

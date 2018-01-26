@@ -6,13 +6,12 @@
 using namespace GameL;
 
 //シーン : クリア
-class CSceneClear :public CScene
+class CSceneAllClear :public CScene
 {
 public:
-	CSceneClear();
-	~CSceneClear();
+	CSceneAllClear();
+	~CSceneAllClear();
 	void InitScene();//初期化メソッド
 	void Scene();	 //実行中メソッド
 private:
-	int m_time;//時間用
 };

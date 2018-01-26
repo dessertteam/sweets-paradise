@@ -5,6 +5,8 @@
 //GameLで使用するヘッダー
 #include"GameL\SceneObjManager.h"
 #include"GameL\DrawFont.h"
+#include "GameL\DrawTexture.h"
+
 //使用するネームスペース
 using namespace GameL;
 
@@ -33,7 +35,7 @@ void CSceneTitle::InitScene()
 
 	//ボリュームを1.0に戻す
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((1.0 - v));
+	v = Audio::VolumeMaster((0.4 - v));
 
 	//音楽スタート
 	Audio::Start(0);
@@ -41,6 +43,9 @@ void CSceneTitle::InitScene()
 	//出力させる文字のグラフィックを作成
 	Font::SetStrTex(L"SweetParadise");
 	Font::SetStrTex(L"GameStart");
+
+	//外部グラフィックファイルを読み込み3番に登録(512*512ピクセル)
+	Draw::LoadImage(L"char.png", 3, TEX_SIZE_512);
 
 	//タイトルオブジェクト作成
 	CObjTitle* obj = new CObjTitle();//タイトルオブジェクト

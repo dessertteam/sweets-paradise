@@ -16,22 +16,22 @@ using namespace GameL;
 #include "GameL\Audio.h"
 
 //コンストラクタ
-CSceneClear::CSceneClear()
+CSceneAllClear::CSceneAllClear()
 {
 
 }
 
 //デストラクタ
-CSceneClear::~CSceneClear()
+CSceneAllClear::~CSceneAllClear()
 {
 
 }
 
 //初期化メソッド
-void CSceneClear::InitScene()
+void CSceneAllClear::InitScene()
 {
 	//音楽読み込み
-	Audio::LoadAudio(0, L"ゲームクリア(仮2).wav", BACK_MUSIC);
+	Audio::LoadAudio(0, L"完全クリア.wav", BACK_MUSIC);
 
 	//ボリュームを1.0に戻す
 	float v = Audio::VolumeMaster(0);
@@ -49,17 +49,11 @@ void CSceneClear::InitScene()
 	CObjClear* obj = new CObjClear();		//クリアオブジェクト作成
 	Objs::InsertObj(obj, OBJ_CLEAR, 10);	//クリアオブジェクト登録
 
-	m_time = 0;
 }
 
 //実行中メソッド
-void CSceneClear::Scene()
+void CSceneAllClear::Scene()
 {
-	m_time++;
 
-	if (m_time == 240)
-	{
-		Audio::Stop(0);
-	}
 
 }

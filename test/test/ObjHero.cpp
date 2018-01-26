@@ -7,14 +7,12 @@
 #include "ObjHero.h"
 #include "UtilityModule.h"
 #include "GameL\DrawFont.h"
+#include "GameL\Audio.h"
 
 #include <time.h>
 
 //使用するネームスペース
 using namespace GameL;
-
-
-
 
 //イニシャライズ
 void CObjHero::Init()
@@ -27,6 +25,7 @@ void CObjHero::Init()
 	GetSweets = 0;//取った数
 	Point = 0;//ポイント
 
+	s_cnt = 0;
 	m_time = 0;
 	m_ani_time = 0;
 	m_ani_frame = 1;	//静止フレームを初期にする
@@ -81,34 +80,64 @@ void CObjHero::Action()
 	}
 
 	CObjSweets* SweetsBlock = (CObjSweets*)Objs::GetObj(OBJ_SWEETS);
+
+	if (m_time > 1800 && s_cnt == 0)
+	{
+		if (SweetsBlock->GetMap(13, 9 == 0))
+		{
+			SweetsBlock->SetMap(12, 8, 5);
+		}
+		s_cnt++;
+	}
+
 	if (SweetsBlock->GetMap((m_x + 16) / 32, (m_y + 16) / 32) == 2)
 	{
 		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
 		GetSweets += 1;
 		Point += 100;
+
+		//ボリュームを1.0に戻す
+		float v = Audio::VolumeMaster(0);
+		v = Audio::VolumeMaster((1.0 - v));
+		Audio::Start(2);
 	}
 	if (SweetsBlock->GetMap((m_x + 16) / 32, (m_y + 16) / 32) == 3)
 	{
 		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
 		GetSweets += 1;
 		Point += 200;
+
+		//ボリュームを1.0に戻す
+		float v = Audio::VolumeMaster(0);
+		v = Audio::VolumeMaster((1.0 - v));
+		Audio::Start(2);
 	}
 	if (SweetsBlock->GetMap((m_x + 16) / 32, (m_y + 16) / 32) == 4)
 	{
 		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
 		GetSweets += 1;
-		Point += 300;
+		Point += 500;
+
+		//ボリュームを1.0に戻す
+		float v = Audio::VolumeMaster(0);
+		v = Audio::VolumeMaster((1.0 - v));
+		Audio::Start(2);
 	}
 	if (SweetsBlock->GetMap((m_x + 16) / 32, (m_y + 16) / 32) == 5)
 	{
 		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
 		GetSweets += 1;
-		Point += 400;
+		Point += 5000;
+
+		//ボリュームを1.0に戻す
+		float v = Audio::VolumeMaster(0);
+		v = Audio::VolumeMaster((1.0 - v));
+		Audio::Start(2);
 	}
 
-	if (GetSweets == 22 && m_x == 416 && m_y == 544)
+	if (GetSweets == 25 && m_x == 416 && m_y == 544)
 	{
-		Scene::SetScene(new CSceneClear());
+		Scene::SetScene(new CSceneAllClear());
 	}
 
 	//初期位置(予定)に戻る
@@ -202,8 +231,8 @@ void CObjHero::Draw()
 	RECT_F dst;//描画先表示位置
 
 	wchar_t str[128];
-	swprintf_s(str, L"%d", Point);//秒の値を文字列化
-	Font::StrDraw(str, 740, 10, 20, c);
+	swprintf_s(str, L"%d Cal", Point);//秒の値を文字列化
+	Font::StrDraw(str, 700, 10, 20, c);
 
 	//切り取り位置の設定
 	src.m_top = 0.0f;

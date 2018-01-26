@@ -5,13 +5,13 @@
 //GameLで使用するヘッダー
 #include"GameL\SceneObjManager.h"
 #include"GameL\DrawFont.h"
-#include"GameL\Audio.h"
 //使用するネームスペース
 using namespace GameL;
 
 //使用ヘッダー
 #include"SceneGameOver.h"
 #include"GameHead.h"
+#include "GameL\Audio.h"
 
 //コンストラクタ
 CSceneGameOver::CSceneGameOver()
@@ -28,18 +28,21 @@ CSceneGameOver::~CSceneGameOver()
 //ゲームメイン初期化
 void CSceneGameOver::InitScene()
 {
-	//出力させる文字のグラフィックを作成
-	Font::SetStrTex(L"GAME OVER");
-
 	//音楽読み込み
 	Audio::LoadAudio(0, L"ゲームオーバー(仮1).wav", BACK_MUSIC);
 
 	//ボリュームを1.0に戻す
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((1.0 - v));
+	v = Audio::VolumeMaster((0.5 - v));
 
 	//音楽スタート
 	Audio::Start(0);
+
+	//出力させる文字のグラフィックを作成
+	Font::SetStrTex(L"GAME OVER");
+
+	//外部グラフィックファイルを読み込み3番に登録(512*512ピクセル)
+	Draw::LoadImage(L"char.png", 3, TEX_SIZE_512);
 
 	//ゲームオーバーオブジェクト作成
 	CObjGameOver* obj = new CObjGameOver();
@@ -49,8 +52,5 @@ void CSceneGameOver::InitScene()
 
 void CSceneGameOver::Scene()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-	Font::StrDraw(L"GameOver", 300, 250, 50, c);
-	Font::StrDraw(L"Push   EnterKey", 300, 400, 30, c);
 }

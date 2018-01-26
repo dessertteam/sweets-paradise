@@ -29,6 +29,7 @@ public:
 	void SetDown(bool b) { m_hit_down = b; }
 	void SetLeft(bool b) { m_hit_left = b; }
 	void SetRight(bool b) { m_hit_right = b; }
+
 private:
 	float m_x;		//位置
 	float m_y;
@@ -42,6 +43,7 @@ private:
 	int z_cnt;//Ｚキーのカウント用
 
 
+	int s_cnt;          //スイーツ出現用
 	int m_time;         //主人公スピード変換用
 	int m_ani_time;		//アニメーションフレーム動作間隔
 	int m_ani_frame;	//描画フレーム

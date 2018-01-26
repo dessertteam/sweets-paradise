@@ -10,13 +10,13 @@
 using namespace GameL;
 
 //イニシャライズ
-void CObjClear::Init()
+void CObjAllClear::Init()
 {
 
 }
 
 //アクション
-void CObjClear::Action()
+void CObjAllClear::Action()
 {
 
 	//エンターキーを押してシーン:タイトルに移行する
@@ -35,7 +35,7 @@ void CObjClear::Action()
 }
 
 //ドロー
-void CObjClear::Draw()
+void CObjAllClear::Draw()
 {
 	//描画カラー情報　R=RED G=Green B=Blue A=Alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };

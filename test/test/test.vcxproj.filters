@@ -55,6 +55,9 @@
     <Filter Include="ソース ファイル\スイーツ">
       <UniqueIdentifier>{cb962631-ff3f-488a-8ab1-6089412ebf75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\ゲームオールクリア">
+      <UniqueIdentifier>{9773d69e-0364-4868-b735-35c0143fdde7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -150,6 +153,12 @@
     <ClInclude Include="ObjSweets.h">
       <Filter>ソース ファイル\スイーツ</Filter>
     </ClInclude>
+    <ClInclude Include="ObjAllClear.h">
+      <Filter>ソース ファイル\ゲームオールクリア</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneAllClear.h">
+      <Filter>ソース ファイル\ゲームオールクリア</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -241,6 +250,12 @@
     </ClCompile>
     <ClCompile Include="ObjSweets.cpp">
       <Filter>ソース ファイル\スイーツ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjAllClear.cpp">
+      <Filter>ソース ファイル\ゲームオールクリア</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneAllClear.cpp">
+      <Filter>ソース ファイル\ゲームオールクリア</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
