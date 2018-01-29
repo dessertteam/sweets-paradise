@@ -2308,7 +2308,7 @@ void CObjKuri::Action()
 	m_x += m_vx;
 	m_y += m_vy;
 
-	if (m_time > 1800)
+	if (m_time > 3000)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
