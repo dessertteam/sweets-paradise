@@ -3,6 +3,7 @@
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "GameL\HitBoxManager.h"
+#include "GameL\UserData.h"
 #include "GameHead.h"
 #include "ObjHero.h"
 #include "UtilityModule.h"
@@ -43,7 +44,10 @@ void CObjHero::Init()
 
 	m_block_type = 0; //blockの種類を確認用
 
-					  //当たり判定用HitBoxを作成
+					  //得点の初期化
+	((UserData*)Save::GetData())->m_cal = 0;
+
+	//当たり判定用HitBoxを作成
 	Hits::SetHitBox(this, m_x, m_y, 32, 32, ELEMENT_PLAYER, OBJ_HERO, 1);
 }
 
@@ -95,6 +99,8 @@ void CObjHero::Action()
 		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
 		GetSweets += 1;
 		Point += 100;
+		//得点の追加
+		((UserData*)Save::GetData())->m_cal += 100;
 
 		//ボリュームを1.0に戻す
 		float v = Audio::VolumeMaster(0);
@@ -106,6 +112,8 @@ void CObjHero::Action()
 		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
 		GetSweets += 1;
 		Point += 200;
+		//得点の追加
+		((UserData*)Save::GetData())->m_cal += 200;
 
 		//ボリュームを1.0に戻す
 		float v = Audio::VolumeMaster(0);
@@ -117,6 +125,8 @@ void CObjHero::Action()
 		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
 		GetSweets += 1;
 		Point += 500;
+		//得点の追加
+		((UserData*)Save::GetData())->m_cal += 500;
 
 		//ボリュームを1.0に戻す
 		float v = Audio::VolumeMaster(0);
@@ -128,6 +138,8 @@ void CObjHero::Action()
 		SweetsBlock->SetMap((m_x + 16) / 32, (m_y + 16) / 32, 0);
 		GetSweets += 1;
 		Point += 5000;
+		//得点の追加
+		((UserData*)Save::GetData())->m_cal += 5000;
 
 		//ボリュームを1.0に戻す
 		float v = Audio::VolumeMaster(0);
@@ -135,7 +147,7 @@ void CObjHero::Action()
 		Audio::Start(2);
 	}
 
-	if (GetSweets == 25 && m_x == 416 && m_y == 544)
+	if (GetSweets > 19 && m_x == 416 && m_y == 544)
 	{
 		Scene::SetScene(new CSceneAllClear());
 	}
@@ -233,6 +245,10 @@ void CObjHero::Draw()
 	wchar_t str[128];
 	swprintf_s(str, L"%d Cal", Point);//秒の値を文字列化
 	Font::StrDraw(str, 700, 10, 20, c);
+
+	wchar_t ttr[128];
+	swprintf_s(ttr, L"%d 個", GetSweets);//秒の値を文字列化
+	Font::StrDraw(ttr, 600, 10, 20, c);
 
 	//切り取り位置の設定
 	src.m_top = 0.0f;

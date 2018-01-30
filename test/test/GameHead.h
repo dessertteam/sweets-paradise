@@ -48,6 +48,8 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
+	int m_cal;      //GameMainで得たカロリー
+	int m_ranking[10]; //ランキング情報
 
 };
 //------------------------------------------------

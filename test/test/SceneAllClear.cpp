@@ -46,8 +46,8 @@ void CSceneAllClear::InitScene()
 	Draw::LoadImage(L"char.png", 3, TEX_SIZE_512);
 
 	//クリアオブジェクト作成
-	CObjClear* obj = new CObjClear();		//クリアオブジェクト作成
-	Objs::InsertObj(obj, OBJ_CLEAR, 10);	//クリアオブジェクト登録
+	CObjAllClear* obj = new CObjAllClear();		//クリアオブジェクト作成
+	Objs::InsertObj(obj, OBJ_ALLCLEAR, 10);	//クリアオブジェクト登録
 
 }
 
